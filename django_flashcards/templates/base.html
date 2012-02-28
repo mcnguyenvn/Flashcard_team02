@@ -1,0 +1,80 @@
+{% load static %}
+{% get_static_prefix as STATIC_PREFIX %}
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title> {{ title }} </title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="{{ STATIC_PREFIX }}style.css" rel="stylesheet" type="text/css" media="screen" />
+</head>
+<body>
+<div id="wrapper">
+	<div id="logo">
+		<h1> {{ headingh1 }} </h1>
+		<p><em> {{ sologan }} </em></p>
+	</div>
+	<hr />
+	<!-- end #logo -->
+	<div id="header">
+		<div id="menu">
+			<ul>
+				<li class="current_page_item"><a href="#" class="first">Trang chủ</a></li>
+				<li><a href="#">Đăng kí</a></li>
+				<li><a href="#">Flashcard</a></li>
+				<li><a href="#">Xếp Hạng</a></li>
+			</ul>
+		</div>
+		<!-- end #menu -->
+		<div id="search">
+			<form method="get" action="">
+				<fieldset>
+				<input type="text" name="s" id="search-text" size="15" />
+				<input type="submit" id="search-submit" value="GO" />
+				</fieldset>
+			</form>
+		</div>
+		<!-- end #search -->
+	</div>
+	<!-- end #header -->
+	<!-- end #header-wrapper -->
+	<div id="page">
+	<div id="page-bgtop">
+    
+    <div id="sidebar">
+			<ul>
+				<li>
+					<h2>Câu hỏi</h2>
+					<p> các câu hỏi mới cập nhật sẽ ghi ra ở đây</p>
+				</li>
+			</ul>
+</div>
+		<!-- end #sidebar -->
+    
+		<div id="content">
+			<div class="post">
+				<h2 class="title"><a href="#">Chào mừng đến với trang web Flashcard</a>				</h2>
+				<div class="entry">
+						Trang web này được thiết kế bởi nhóm 2 môn công nghệ phần mềm . Mục đích của trang web là 
+				thiết kế các Flashcard . Flashcard là 1 tập các thẻ có 2 phần cấu hỏi và trả lời . Người chơi có thể
+				tạo các câu hỏi . Người dùng được xếp hạng theo số câu trả lời đúng . 
+				</div>
+			</div>
+			<div class="post">
+				<h2 class="title"><a href="#">Giới thiệu nhóm</a>				</h2>
+				<div class="entry">
+					<p> Nhóm 2 - môn công nghệ phần mềm gồm các thành viên : </p>
+					<p> Trương Thành Công - K55CA </p>
+					<p> Nguyễn Mạnh Cường - K55CA </p>
+					<p> Đường Minh Dũng - K55CA</p>
+					<p> Nguyễn Thạc Dư - K55CA </p>
+					<p> Đỗ Thành Đạt - K55CA </p>
+                </div>
+			</div>
+		</div>	
+</div>
+		
+</body>
+</html>
