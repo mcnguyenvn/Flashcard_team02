@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="CoffeeCup HTML Editor (www.coffeecup.com)">
+    <meta name="created" content="Sat, 03 Mar 2012 02:37:22 GMT">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>Create New FlashCard</title>
+    
+    <style type="text/css">
+    <!--
+    body {
+      color:#000000;
+      background-color:#FFFFFF;
+    }
+    a  { color:#0000FF; }
+    a:visited { color:#800080; }
+    a:hover { color:#008000; }
+    a:active { color:#FF0000; }
+    -->
+    </style>
+    <!--[if IE]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+		<!--
+  		<h1>New Flashcard</h1>
+		<form action="." method="POST" name="new_flashcard">
+		<label>Flashcard Title</label> <input name="title" size="30" type="text" />
+		<br />
+		<label>Description</label> <input name="des" size="100" type="text" />
+		</form>
+		-->
+		<form action="." method = "POST">
+			<h2>New Flashcards</h2>
+			<table>
+				{{ flashcardForm.as_table }}
+			</table>
+			</br>
+
+			</br>
+			<input type = "submit" value = "Submit" />
+			<input type="reset" value="Cancel" />
+		</form>
+  </body>
+</html>

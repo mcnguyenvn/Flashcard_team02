@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="CoffeeCup HTML Editor (www.coffeecup.com)">
+    <meta name="created" content="Fri, 02 Mar 2012 19:33:39 GMT">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>Index</title>
+    
+    <style type="text/css">
+    <!--
+    body {
+      color:#000000;
+      background-color:#FFFFFF;
+    }
+    a  { color:#0000FF; }
+    a:visited { color:#800080; }
+    a:hover { color:#008000; }
+    a:active { color:#FF0000; }
+    -->
+    </style>
+    <!--[if IE]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+  	{% if objects %}
+  		<ul>
+  		{% for flashcard in objects %}
+  			<li>
+  				<a href="/flashcard/{{ flashcard.id }}/"> 
+  					{{ flashcard.title }}
+  				</a>
+  			</li>
+  		{% endfor %}
+  		</ul>
+  	{% else %}
+  		<p> There is no FlashCard </p>
+  	{% endif %}	
+  	<a href="/flashcard/create/">Create New FlashCard</a>
+  </body>
+</html>
