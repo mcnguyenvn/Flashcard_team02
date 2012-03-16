@@ -1,0 +1,72 @@
+{% load static %}
+{% get_static_prefix as STATIC_PREFIX %}
+
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title> main page </title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="{{ STATIC_PREFIX }}style.css" rel="stylesheet" type="text/css" media="screen" />
+<script type="text/javascript" src="{{ STATIC_PREFIX }}javascript/jquery-1.7.1.js"></script>
+<script type="text/javascript" src="{{ STATIC_PREFIX }}javascript/edit.js"></script>
+</head>
+<body>
+<div id="wrapper">
+	<div id="logo">
+		<h1> TEAM02-K55CA </h1>
+		<p><em> flashcard project </em></p>
+	</div>
+	<hr />
+	<!-- end #logo -->
+	<div id="header">
+		<div id="menu">
+			<ul>
+				<li><a href="..">Trang chủ</a></li>
+				{% if not user.is_authenticated %}
+					<li><a href="/regis/">Đăng kí</a></li>
+				{% endif %}
+				<li class="current_page_item" ><a href="#" class="first"> Flashcard </a></li>
+				<li><a href="../rank">Xếp Hạng</a></li>
+			</ul>
+		</div>
+		<!-- end #menu -->
+		<div id="search">
+			<form method="get" action="">
+				<fieldset>
+				<input type="text" name="s" id="search-text" size="15" />
+				<input type="submit" id="search-submit" value="GO" />
+				</fieldset>
+			</form>
+		</div>
+		<!-- end #search -->
+	</div>
+	<!-- end #header -->
+	<!-- end #header-wrapper -->
+	<div id="page">
+	<div id="page-bgtop">
+    
+		<!-- end #sidebar -->
+    
+		<div id="content">
+			{% if objects %}
+			<ul>
+			{% for flashcard in objects %}
+				<li>
+					<a href="/flashcard/{{ flashcard.id }}/"> 
+  					{{ flashcard.title }}
+					</a>
+				</li>
+			{% endfor %}
+			</ul>
+			{% else %}
+			<p> There is no FlashCard </p>
+			{% endif %}	
+			<a href="/flashcard/create/">Create New FlashCard</a>
+		</div>	
+</div>
+		
+</body>
+</html>

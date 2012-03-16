@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}
+	<title>
+	Flashcard Detail
+	</title>
+{% endblock %}
+
+{% block content %}
+		<div>
+			<nav>
+				<p>
+					{{ fc.title }}
+					</br>
+					{{ fc.description }}
+					</br>
+					{{ fc.grade }}
+					</br>
+					{{ fc.subject }}
+				</p>
+			
+				<p>
+					{% if quests %}
+						{% for quest in quests %}
+							{{quest.prompt}} {{quest.answer}}
+							<br/>
+						{% endfor %}
+					{% endif %}
+				</p>
+				
+				<a href="/flashcard/{{flashcard_id}}/edit/">Edit this Flashcard</a>
+			</nav>
+		</div>
+{% endblock %}

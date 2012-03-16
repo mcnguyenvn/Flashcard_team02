@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}
+	<title>
+	Creating a Flashcard
+	</title>
+{% endblock %}
+
+{% block content %}
+
+<div id="content">
+<form method="post" action=".">
+	<table><tr><td> <p> {{ state }} </p> </td></tr></table>
+
+    <table>
+        {{ form.as_table }}
+	</table>
+	<br/>
+    <table><tr><td> <input type="submit" value="Submit" /> </td></tr></table>
+
+</form>
+</div>
+{% endblock %}
+      
+
