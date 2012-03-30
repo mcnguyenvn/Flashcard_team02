@@ -1,0 +1,28 @@
+{% extends "flashcard/base.html" %}
+
+{% block content %}
+
+	<link href="{{ STATIC_PREFIX }}css/table_style.css" rel="stylesheet">
+	 
+    <div class="span9">
+    <p> <font size ="5" color ="#adff2f"> {{ fc.title }} </font> </br> </p>
+    <a href="/flashcard/{{flashcard_id}}/edit/"> Edit this Flashcard </a>
+    </div>
+
+	<div id="wrapper">
+		<div id="main" class="clearfix">
+			<div class="tr lesson">
+				<div class="content" align = "center">
+					{% if quests %}
+						<input type="hidden" id="hiddenprompt" name="variable" value="{{ p }}">
+						<input type="hidden" id="hiddenanswer" name="variable" value="{{ a }}">
+
+						<script type="text/javascript" src="{{ STATIC_PREFIX }}javascript/display.js"></script>
+					{% else %}
+						<p>No Flashcards found.</p>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

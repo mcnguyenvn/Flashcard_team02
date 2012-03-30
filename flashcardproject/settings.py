@@ -162,4 +162,8 @@ LOGGING = {
     }
 }
 
+<<<<<<< HEAD
+QuestNumber = 10
+=======
 QuestNumber = 50
+>>>>>>> c64d101212f1ab4060c9ca4390c56bdd4c0432b3

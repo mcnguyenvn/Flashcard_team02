@@ -11,4 +11,8 @@ except ImportError:
 import settings
 
 if __name__ == "__main__":
+<<<<<<< HEAD
     execute_manager(settings)
+=======
+    execute_manager(settings)
+>>>>>>> c64d101212f1ab4060c9ca4390c56bdd4c0432b3

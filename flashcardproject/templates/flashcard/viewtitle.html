@@ -1,0 +1,19 @@
+{% extends "flashcard/base.html" %}
+
+{% block content %}
+<div class="span9">
+	{% if objects %}
+  		<ul>
+  		{% for flashcard in objects %}
+  			<li>
+                <a href="/flashcard/{{ flashcard.id }}/">
+  					<font size="4" color="blue">{{ flashcard.title }} </font>
+  				</a>
+  			</li>
+  		{% endfor %}
+  		</ul>
+  	{% else %}
+  		<p> There is no FlashCard </p>
+  	{% endif %}	
+</div>	
+{% endblock %}
