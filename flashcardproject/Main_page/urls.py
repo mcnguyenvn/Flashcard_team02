@@ -14,11 +14,7 @@ urlpatterns = patterns('',
 	url(r'^$',main_page),
 	url(r'^main_page/$',main_page),
     url(r'^logout/$',logout_page),
-<<<<<<< HEAD
 	# url(r'^accounts/login/$', 'django.contrib.auth.views.login', {'template_name': 'login.html'}),
-=======
-	url(r'^accounts/login/$', 'django.contrib.auth.views.login', {'template_name': 'login.html'}),
->>>>>>> c64d101212f1ab4060c9ca4390c56bdd4c0432b3
 	
 	# url(r'^flashcard',flashcard),
     # url(r'^rank',rank),

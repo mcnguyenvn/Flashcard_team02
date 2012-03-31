@@ -29,19 +29,11 @@ def register(request):
     }
     )
 
-<<<<<<< HEAD
     return render_to_response('registration/regis.html',variables,context_instance=RequestContext(request))
 
 def regis_success(request):
 
     return render_to_response('registration/regis_succes.html')
-=======
-    return render_to_response('regis.html',variables,context_instance=RequestContext(request))
-
-def regis_success(request):
-
-    return render_to_response('regis_succes.html')
->>>>>>> c64d101212f1ab4060c9ca4390c56bdd4c0432b3
 
 
 

@@ -25,28 +25,12 @@
     <favorites_list name="flashcardproject" />
   </component>
   <component name="FileEditorManager">
-<<<<<<< HEAD
     <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
       <setting name="OPEN_NEW_TAB" value="false" />
     </FindUsagesManager>
-=======
-    <leaf>
-      <file leaf-file-name="urls.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Registration/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="44" selection-start="412" selection-end="412" vertical-scroll-proportion="0.54545456">
-              <folding>
-                <element signature="e#0#60#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
->>>>>>> c64d101212f1ab4060c9ca4390c56bdd4c0432b3
   </component>
   <component name="Git.Settings">
     <option name="CHECKOUT_INCLUDE_TAGS" value="false" />
@@ -56,7 +40,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-<<<<<<< HEAD
         <option value="$PROJECT_DIR$/templates/flashcard/create.html" />
         <option value="$PROJECT_DIR$/templates/mainpage/index.html" />
         <option value="$PROJECT_DIR$/Main_page/views.py" />
@@ -73,21 +56,6 @@
         <option value="$PROJECT_DIR$/templates/flashcard/base.html" />
         <option value="$PROJECT_DIR$/flashcardapp/urls.py" />
         <option value="$PROJECT_DIR$/flashcardapp/views.py" />
-=======
-        <option value="$PROJECT_DIR$/Main_page/views.py" />
-        <option value="$PROJECT_DIR$/templates/regis.html" />
-        <option value="$PROJECT_DIR$/templates/base.html" />
-        <option value="$PROJECT_DIR$/templates/index.html" />
-        <option value="$PROJECT_DIR$/static/javascript/jquery-1.7.1.js" />
-        <option value="$PROJECT_DIR$/Registration/views.py" />
-        <option value="$PROJECT_DIR$/templates/regis_succes.html" />
-        <option value="$PROJECT_DIR$/templates/create.html" />
-        <option value="$PROJECT_DIR$/settings.py" />
-        <option value="$PROJECT_DIR$/flashcardapp/models.py" />
-        <option value="$PROJECT_DIR$/flashcardapp/forms.py" />
-        <option value="$PROJECT_DIR$/flashcardapp/views.py" />
-        <option value="$PROJECT_DIR$/urls.py" />
->>>>>>> c64d101212f1ab4060c9ca4390c56bdd4c0432b3
       </list>
     </option>
   </component>
@@ -123,6 +91,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -141,91 +110,8 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="flashcardproject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="flashcardproject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="flashcardproject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="flashcardproject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-<<<<<<< HEAD
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="flashcard" />
-=======
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="flashcardproject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="flashcardproject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="flashcardapp" />
->>>>>>> c64d101212f1ab4060c9ca4390c56bdd4c0432b3
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="flashcardproject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="flashcardproject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-<<<<<<< HEAD
-              <option name="myItemId" value="flashcardapp" />
-=======
-              <option name="myItemId" value="Registration" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="flashcardproject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="flashcardproject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Main_page" />
->>>>>>> c64d101212f1ab4060c9ca4390c56bdd4c0432b3
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -234,7 +120,6 @@
     <property name="last_opened_file_path" value="D:/UET/FlashCards/input" />
     <property name="dynamic.classpath" value="false" />
   </component>
-<<<<<<< HEAD
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
       <PyConsoleSettings />
@@ -243,8 +128,6 @@
       <PyConsoleSettings />
     </option>
   </component>
-=======
->>>>>>> c64d101212f1ab4060c9ca4390c56bdd4c0432b3
   <component name="RunManager" selected="Django server.flashcardproject">
     <configuration default="false" name="Default" type="com.intellij.persistence.run.ConsoleRunConfigurationType" factoryName="Query Language Console" temporary="true">
       <option name="VM_PARAMETERS" value="" />
@@ -254,7 +137,6 @@
       <ConfigurationWrapper RunnerId="Basic" />
       <method />
     </configuration>
-<<<<<<< HEAD
     <configuration default="false" name="views" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -273,8 +155,6 @@
       <ConfigurationWrapper RunnerId="PythonRunner" />
       <method />
     </configuration>
-=======
->>>>>>> c64d101212f1ab4060c9ca4390c56bdd4c0432b3
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -289,25 +169,6 @@
       <option name="SCRIPT_NAME" value="" />
       <option name="PARAMETERS" value="" />
       <option name="MULTIPROCESS" value="false" />
-      <method />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="Unittests">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <module name="flashcardproject" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <option name="PUREUNITTEST" value="true" />
       <method />
     </configuration>
     <configuration default="true" type="Python.DjangoServer" factoryName="Django server">
@@ -331,7 +192,25 @@
       <option name="launchJavascriptDebuger" value="false" />
       <method />
     </configuration>
-<<<<<<< HEAD
+    <configuration default="true" type="tests" factoryName="Unittests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <module name="flashcardproject" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PUREUNITTEST" value="true" />
+      <method />
+    </configuration>
     <configuration default="true" type="JavascriptDebugSession" factoryName="Remote">
       <JSRemoteDebuggerConfigurationSettings>
         <option name="engineId" value="embedded" />
@@ -339,8 +218,6 @@
       </JSRemoteDebuggerConfigurationSettings>
       <method />
     </configuration>
-=======
->>>>>>> c64d101212f1ab4060c9ca4390c56bdd4c0432b3
     <configuration default="true" type="JavascriptDebugSession" factoryName="Local">
       <JSDebuggerConfigurationSettings>
         <option name="engineId" value="embedded" />
@@ -379,16 +256,10 @@
       <ConfigurationWrapper RunnerId="PythonRunner" />
       <method />
     </configuration>
-<<<<<<< HEAD
     <list size="3">
       <item index="0" class="java.lang.String" itemvalue="Django server.flashcardproject" />
       <item index="1" class="java.lang.String" itemvalue="Query Language Console.Default" />
       <item index="2" class="java.lang.String" itemvalue="Python.views" />
-=======
-    <list size="2">
-      <item index="0" class="java.lang.String" itemvalue="Django server.flashcardproject" />
-      <item index="1" class="java.lang.String" itemvalue="Query Language Console.Default" />
->>>>>>> c64d101212f1ab4060c9ca4390c56bdd4c0432b3
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
@@ -421,7 +292,6 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-<<<<<<< HEAD
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="false" />
     <layout>
@@ -429,25 +299,11 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32885906" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33611533" sideWeight="0.0" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25644916" sideWeight="0.6728188" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32941177" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32718122" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-=======
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="1" />
-    <editor active="true" />
-    <layout>
-      <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32928678" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32941177" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34825492" sideWeight="0.67058825" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32941177" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32941177" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
->>>>>>> c64d101212f1ab4060c9ca4390c56bdd4c0432b3
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -510,7 +366,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/static/css/bootstrap.min.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
@@ -589,94 +444,6 @@
     <entry file="file://$PROJECT_DIR$/flashcardapp/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="37" selection-start="405" selection-end="405" vertical-scroll-proportion="0.32749563" />
-=======
-    <entry file="file://D:/UET/FlashCards/input/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="26" selection-start="510" selection-end="510" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="81" selection-start="546" selection-end="591" vertical-scroll-proportion="-7.8461537" />
-      </provider>
-    </entry>
-    <entry file="file://D:/UET/FlashCards/templates/input/main.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="187" selection-end="218" vertical-scroll-proportion="-3.9230769" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="83" column="0" selection-start="2782" selection-end="2782" vertical-scroll-proportion="-7.230769" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/regis.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="4" selection-start="1393" selection-end="1393" vertical-scroll-proportion="-0.65384614" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/create.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="59" selection-start="669" selection-end="669" vertical-scroll-proportion="-0.15625" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flashcardapp/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="28" selection-start="28" selection-end="28" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://D:/UET/FlashCards/input/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="0" selection-start="261" selection-end="1168" vertical-scroll-proportion="0.6263158" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="145" column="42" selection-start="5338" selection-end="5338" vertical-scroll-proportion="0.23698384" />
-      </provider>
-    </entry>
-    <entry file="file://D:/UET/FlashCards/input/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="55" selection-start="697" selection-end="697" vertical-scroll-proportion="0.02982456" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flashcardapp/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="40" selection-start="1070" selection-end="1070" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flashcardapp/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flashcardapp/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="0" selection-start="1271" selection-end="1271" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Registration/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="93" selection-start="1014" selection-end="1054" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="52" selection-start="512" selection-end="512" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#60#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Registration/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="44" selection-start="412" selection-end="412" vertical-scroll-proportion="0.54545456">
-          <folding>
-            <element signature="e#0#60#0" expanded="true" />
-          </folding>
-        </state>
->>>>>>> c64d101212f1ab4060c9ca4390c56bdd4c0432b3
       </provider>
     </entry>
   </component>

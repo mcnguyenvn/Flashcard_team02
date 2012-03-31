@@ -133,8 +133,9 @@ INSTALLED_APPS = (
     'flashcardproject.Main_page',
     'flashcardproject.Registration',
     'flashcardproject.flashcardapp',
+	'flashcardproject.django_gravatar',
 	# Uncomment the next line to enable the admin:
-    'django.contrib.admin',
+    # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )
@@ -162,8 +163,4 @@ LOGGING = {
     }
 }
 
-<<<<<<< HEAD
 QuestNumber = 10
-=======
-QuestNumber = 50
->>>>>>> c64d101212f1ab4060c9ca4390c56bdd4c0432b3

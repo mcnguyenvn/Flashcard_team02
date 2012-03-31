@@ -484,7 +484,7 @@ function FCOpac(id,n){FCGid(id).style.filter='alpha(opacity='+n+')';FCGid(id).st
 function randOrd(){return(Math.round(Math.random())-0.5);}
 
 document.write(
-'<link rel="stylesheet" href="{{ STATIC_PREFIX }}css/embed.css" type="text/css"/>'+
+'<link rel="stylesheet" href="/static/css/embed.css" type="text/css"/>'+
 '<div id="studybulb">'+
 '<span id="itemtabs">'+
 '    <a href="javascript:FCLoadNew(1);void(0)" style="border-left-width:1px">1. Flashcards</a>'+

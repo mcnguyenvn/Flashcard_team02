@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 {% extends "flashcard/base.html" %}
 
 {% block content %}
@@ -15,30 +14,6 @@
 
 		</form>
 	</div>
-=======
-{% extends "base.html" %}
-
-{% block title %}
-	<title>
-	Creating a Flashcard
-	</title>
-{% endblock %}
-
-{% block content %}
-
-<div id="content">
-<form method="post" action=".">
-	<table><tr><td> <p> {{ state }} </p> </td></tr></table>
-
-    <table>
-        {{ form.as_table }}
-	</table>
-	<br/>
-    <table><tr><td> <input type="submit" value="Submit" /> </td></tr></table>
-
-</form>
-</div>
->>>>>>> c64d101212f1ab4060c9ca4390c56bdd4c0432b3
 {% endblock %}
       
 

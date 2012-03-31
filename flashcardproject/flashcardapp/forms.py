@@ -24,7 +24,6 @@ GRADE_CHOICES = (
 
 SUBJECT_CHOICES = (
     ('art', 'Art'),
-<<<<<<< HEAD
     ('bae', 'Business & Economics'),
     ('cos', 'Computer Science'),
     ('geo', 'Geography'),
@@ -36,19 +35,6 @@ SUBJECT_CHOICES = (
     ('sci', 'Science'),
     ('peh', 'PE & Health'),
     ('rel', 'Religion'),                 
-=======
-    ('buseco', 'Business & Economics'),
-    ('cs', 'Computer Science'),
-    ('geo', 'Geography'),
-    ('gov', 'Government & Politics'),
-    ('history', 'History'),
-    ('math', 'Math'),
-    ('music', 'Music'),
-    ('foreign', 'Foreign Language'),
-    ('science', 'Science'),
-    ('peh', 'PE & Health'),
-    ('religion', 'Religion'),                 
->>>>>>> c64d101212f1ab4060c9ca4390c56bdd4c0432b3
 )
 
 class FlashCardForm(forms.ModelForm):
