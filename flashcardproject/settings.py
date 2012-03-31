@@ -134,6 +134,7 @@ INSTALLED_APPS = (
     'flashcardproject.Registration',
     'flashcardproject.flashcardapp',
 	'flashcardproject.django_gravatar',
+    'flashcardproject.account',
 	# Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:

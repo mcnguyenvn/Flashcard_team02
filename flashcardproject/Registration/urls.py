@@ -14,6 +14,7 @@ urlpatterns = patterns('',
 	
 	url(r'^regis_success/$', regis_success),
 	url(r'^regis/$', register),
+    url(r'^resetpassword/$', reset_password),
 	
 	# Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

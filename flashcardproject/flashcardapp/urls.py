@@ -11,5 +11,6 @@ urlpatterns = patterns('flashcardapp.views',
     (r'^edit/success/$', 'creatingsuccess'),
     (r'^(?P<flashcard_id>\d+)/create_question/$', 'create_question'),
     (r'^(?P<flashcard_id>\d+)/edit/$', 'edit'),
+    (r'^(?P<flashcard_id>\d+)/delete/$', 'delete'),
     (r'^(?P<flashcard_id>\d+)/$', 'view_flashcard'),
 )

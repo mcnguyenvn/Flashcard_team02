@@ -1,12 +1,18 @@
 {% extends "flashcard/base.html" %}
 
+{% block myflashcard %}
+    {% if owner %}
+        <li><a href="/flashcard/{{flashcard_id}}/edit/"> Edit this Flashcard </a></li>
+        <li><a href="/flashcard/{{flashcard_id}}/delete/"> Delete this Flashcard </a></li>
+    {% endif %}
+{% endblock %}
+
 {% block content %}
 
 	<link href="{{ STATIC_PREFIX }}css/table_style.css" rel="stylesheet">
 	 
     <div class="span9">
-    <p> <font size ="5" color ="#adff2f"> {{ fc.title }} </font> . Click  
-    <a href="/flashcard/{{flashcard_id}}/edit/"> here </a> to edit this flashcard </p>
+    <p> <font size ="5" color ="#adff2f"> {{ fc.title }} </font> .
     </div>
 
 	

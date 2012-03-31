@@ -1,6 +1,7 @@
 ﻿# Create your views here.
 
 from django.contrib.auth.models import User
+from django.contrib.auth.forms import PasswordResetForm
 from django.http import HttpResponse , Http404, HttpResponseRedirect
 from django.template import Context
 from django.template import RequestContext
@@ -35,6 +36,10 @@ def regis_success(request):
 
     return render_to_response('registration/regis_succes.html')
 
+def reset_password(request):
+    form = PasswordResetForm()
+    return render_to_response('registration/lostpassword.html', {'form': form})
 
+def reset_success(request):
 
-
+    return render_to_response('resetsuccess.html')

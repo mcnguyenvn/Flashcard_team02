@@ -24,6 +24,7 @@ def create(request):
         form = FlashCardForm(request.POST)
         if form.is_valid():
             new_flashcard = form.save()
+            new_flashcard.user = request.user
             new_flashcard.save()
 
         for i in xrange(settings.QuestNumber):
@@ -54,13 +55,17 @@ def edit(request, flashcard_id):
     if request.method == "POST":
         form = FlashCardForm(request.POST)
         if form.is_valid():
+            new_flashcard = form.save()
             card = get_object_or_404(FlashCard, pk = flashcard_id)
             quests = Question.objects.filter(flashcardID__exact = card)
+            card.copy(new_flashcard)
+            card.save()
 
+            # delete all old questions
             for q in quests:
                 q.delete()
 
-
+            # add new questions
             for i in xrange(settings.QuestNumber):
                 if request.POST['Prompt_%d' % (i+1)] != '':
                     prompt = request.POST['Prompt_%d' % (i+1)]
@@ -109,12 +114,17 @@ def view_flashcard(request, flashcard_id):
     p = p[:-3]
     a = a[:-3]
 
+    owner = 0
+    if fc.user == request.user:
+        owner = 1
+
     var = RequestContext(request, {
         'fc': fc,
         'quests': quests,
         'flashcard_id': flashcard_id,
         'p':p,
         'a':a,
+        'owner': owner,
         })
 
     return render_to_response('flashcard/viewquest.html',var)

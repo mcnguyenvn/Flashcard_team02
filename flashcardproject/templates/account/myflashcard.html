@@ -1,0 +1,15 @@
+{% extends "account/base.html" %}
+
+{% block content %}
+    <div class='span9'>
+        {% if flashcards %}
+            <ul>
+            {% for flashcard in flashcards %}
+                <li><a href="/flashcard/{{ flashcard.id }}/">{{ flashcard.title }}</a></li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p> You have no Flashcard. </p>
+        {% endif %}
+    </div>
+{% endblock %}

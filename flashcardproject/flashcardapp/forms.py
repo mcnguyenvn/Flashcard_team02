@@ -49,6 +49,7 @@ class FlashCardForm(forms.ModelForm):
     
     class Meta:
         model = FlashCard
+        exclude = ('user',)
 
     def __init__(self, *args, **kwargs):
         super(FlashCardForm, self).__init__(*args, **kwargs)
@@ -71,6 +72,5 @@ class FlashCardForm(forms.ModelForm):
         new_flashcard.description = self.cleaned_data['description']
         new_flashcard.grade = self.cleaned_data['grade']
         new_flashcard.subject = self.cleaned_data['subject']
-        new_flashcard.save()
         return new_flashcard
     

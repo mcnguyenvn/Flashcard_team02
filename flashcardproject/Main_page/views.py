@@ -37,4 +37,3 @@ def main_page(request):
 def logout_page(request):
     logout(request)
     return render_to_response('mainpage/logout.html')
- 
