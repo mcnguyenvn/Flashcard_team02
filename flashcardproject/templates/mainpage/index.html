@@ -78,9 +78,57 @@
 	</div> <!-- / top -->
 </div> 
 <!--panel -->
-<div>
-	<p class="pos"> <font size ="5" face="arial"> Please , login to enter our flashcard website </br>
-	 Registration <a class="btn" href="../regis"> here </a> </font> </p>
+<div class="regis">
+	    <p> <font size ="5" face="arial"> Please , login to enter our flashcard website </br>  </p>
+        <p> <font size ="5" face="arial" color="blue"> Registration </font> </br> </p>
+        <small> It's free and always will be </small> </td>
+        <form method="post" action="/regis/">
+            <table>
+                <tr>
+                    <td>
+                        <p style="font-size:medium;"> Username  </p>
+                    </td>
+                    <td>
+                        <input type="text" name="username" value="{{ username }}" size="30"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p style="font-size:medium;"> Password  </p>
+                    </td>
+                    <td>
+                        <input type="password" name="password1" value="{{ password1 }}" size="30"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p style="font-size:medium;"> Password  </p>
+                    </td>
+                    <td>
+                        <input type="password" name="password2" value="{{ password2 }}" size="30"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p style="font-size:medium;"> Email  </p>
+                    </td>
+                    <td>
+                        <input type="text" name="email1" value="{{ email1 }}" size="30"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p style="font-size:medium;"> Email </p>
+                    </td>
+                    <td>
+                        <input type="text" name="email2" value="{{ email2 }}" size="30"/>
+                    </td>
+                </tr>
+                <td align="center">
+                <input type="submit" value="Đăng ký" action = "" class="button"/></td>
+            </table>
+        </form>
+    </div>
 </div>
 </body>
 </html>

@@ -27,8 +27,7 @@ def register(request):
 
     variables=Context({
         'state' : state,
-    }
-    )
+    })
 
     return render_to_response('registration/regis.html',variables,context_instance=RequestContext(request))
 

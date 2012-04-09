@@ -1,5 +1,6 @@
 # Create your views here.
 from flashcardapp.forms import FlashCardForm
+from django.db.models import Q
 from flashcardapp.models import FlashCard, Question
 from django.core.exceptions import ObjectDoesNotExist
 from django.http import HttpResponseRedirect, Http404
@@ -45,6 +46,18 @@ def create(request):
 @login_required
 def creatingsuccess(request):
     return render_to_response('flashcard/creatingsuccess.html')
+
+@login_required
+def delete(request, flashcard_id):
+    card = get_object_or_404(FlashCard, pk = flashcard_id)
+    quests = Question.objects.filter(flashcardID__exact = card)
+
+    for q in quests:
+        q.delete()
+
+    card.delete()
+
+    return render_to_response('flashcard/delsuccess.html')
 
 @login_required
 def editsuccess(request):
@@ -94,6 +107,22 @@ def edit(request, flashcard_id):
         'form': form,
         'user':request.user,
         },context_instance=RequestContext(request))
+
+@login_required
+def search(request):
+    query = request.GET.get('q', '')
+    if query:
+        qset = (
+            Q(prompt__icontains=query) |
+            Q(answer__icontains=query)
+            )
+        results = Question.objects.filter(qset).distinct()
+    else:
+        results = []
+    return render_to_response("flashcard/search.html", {
+        "results": results,
+        "query": query
+    })
 
 @login_required
 def view_title(request,sub):

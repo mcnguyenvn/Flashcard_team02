@@ -37,10 +37,12 @@
             <span class="icon-bar"></span>
           </a>
           <a class="brand" href="/flashcard/"> Flashcard - INT 2026 - Spring 2012 </a>
-		      <form class="navbar-search pull-left">
-				<input type="text" class="search-query" placeholder="Search">
+
+              <form action="/flashcard/search/" method="GET" class="navbar-search pull-left">
+				<input type="text" name="q" value="{{ query|escape }}" class="search-query" placeholder="Search">
 			  </form>
-		  <div class="nav-collapse"> 
+
+          <div class="nav-collapse">
 				<p class="navbar-text pull-right">
                         Logged in as <font size = "5" color="yellow"> {{ user.username }} </font>
                         <a href="/logout/"> Log out </a>
@@ -62,9 +64,6 @@
 			  <li class="nav-header"> My Flashcards </li>
               <li><a href="/user/flashcardlist/"> View My Flashcard </a></li>
               <li><a href="/flashcard/create"> New Flashcard </a></li>
-              {% block myflashcard %}
-
-              {% endblock %}
               
 			  <li class="nav-header"> Categories </li>
               <li><a href="/flashcard/title/art">  Art 				 </a></li>
