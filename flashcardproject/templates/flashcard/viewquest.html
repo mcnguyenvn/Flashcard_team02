@@ -9,18 +9,7 @@
 
     <p> <font size ="5" color ="#adff2f"> {{ fc.title }} </font> </br>
 	    {% if owner %}
-            <link href="{{ STATIC_PREFIX }}css/confirm.css" rel="stylesheet">
-            <script type="text/javascript" src="/static/javascript/confirm.js"></script>
-            <script>
-                $("#yesno").easyconfirm({locale: { title: 'Select Yes or No', button: ['No','Yes']}});
-                $("#yesno").click(function() {
-                    $.post("/flashcard/{{flashcard_id}}/delete/",{
-                        data: { 'flashcard_id': {{  flashcard_id }} },
-                    });
-                });
-            </script>
-
-            You can <a href="/flashcard/{{flashcard_id}}/edit/"> edit </a> or
+            You can <a href="/flashcard/{{ flashcard_id }}/edit/"> edit </a> or
             <a href="/flashcard/{{flashcard_id}}/delete/"> delete </a> this flashcard .
         {% else %}
 		    <font color = "#8b0000"> Only the authors of flashcard can update or delete </font>

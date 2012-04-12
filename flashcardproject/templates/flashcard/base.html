@@ -1,4 +1,5 @@
-﻿{% load static %}
+﻿{% load gravatar %}
+{% load static %}
 {% get_static_prefix as STATIC_PREFIX %}
 
 <!DOCTYPE html>
@@ -44,10 +45,11 @@
 
           <div class="nav-collapse">
 				<p class="navbar-text pull-right">
-                        Logged in as <font size = "5" color="yellow"> {{ user.username }} </font>
+							<img height="30" src="{% gravatar_url user.email %}" width="30">
+							<font size = "5" color="yellow"> {{ user.username }} </font>
                         <a href="/logout/"> Log out </a>
                 </p>
-          </div>	
+          </div>
 		</div>
       </div>
     </div>

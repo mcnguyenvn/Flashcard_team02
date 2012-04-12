@@ -133,7 +133,7 @@ INSTALLED_APPS = (
     'flashcardproject.Main_page',
     'flashcardproject.Registration',
     'flashcardproject.flashcardapp',
-	# 'flashcardproject.django_gravatar',
+	'flashcardproject.django_gravatar',
     'flashcardproject.account',
 	# 'flashcardproject.haystack',
 	# Uncomment the next line to enable the admin:
