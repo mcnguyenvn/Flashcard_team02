@@ -8,13 +8,15 @@ from flashcardapp.models import FlashCard
 @login_required
 def user_flashcard(request):
     flashcards = FlashCard.objects.filter(user__exact = request.user)
-    return render_to_response('account/myflashcard.html', {'flashcards': flashcards})
+    return render_to_response('account/myflashcard.html', {'flashcards': flashcards,
+                                                           'user':request.user})
 
 @login_required
 def user_profile(request):
     user = request.user
 
-    return render_to_response('account/userprofile.html')
+    return render_to_response('account/userprofile.html',{'user':request.user
+    })
 
 def change_password(request):
     error = 0
@@ -42,4 +44,5 @@ def change_password(request):
         'newpass2': newpass2,
         'changed': changed,
         'error': error,
+        'user':request.user,
     })

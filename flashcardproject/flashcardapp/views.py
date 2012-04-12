@@ -45,7 +45,9 @@ def create(request):
 
 @login_required
 def creatingsuccess(request):
-    return render_to_response('flashcard/creatingsuccess.html')
+    return render_to_response('flashcard/creatingsuccess.html' , {
+		'user':request.user,
+    },context_instance=RequestContext(request))
 
 @login_required
 def delete(request, flashcard_id):
@@ -57,11 +59,15 @@ def delete(request, flashcard_id):
 
     card.delete()
 
-    return render_to_response('flashcard/delsuccess.html')
+    return render_to_response('flashcard/delsuccess.html' , {
+		'user':request.user,
+    },context_instance=RequestContext(request))
 
 @login_required
 def editsuccess(request):
-    return render_to_response('flashcard/editsuccess.html')
+    return render_to_response('flashcard/editsuccess.html' , {
+		'user':request.user,
+    },context_instance=RequestContext(request))
 
 @login_required
 def edit(request, flashcard_id):
@@ -121,13 +127,18 @@ def search(request):
         results = []
     return render_to_response("flashcard/search.html", {
         "results": results,
-        "query": query
-    })
+        "query": query ,
+		'user':request.user,
+    }, context_instance=RequestContext(request))
+	
 
 @login_required
 def view_title(request,sub):
     objects = FlashCard.objects.filter(subject=sub)
-    return render_to_response('flashcard/viewtitle.html',{'objects':objects})
+    return render_to_response('flashcard/viewtitle.html',{
+		'objects':objects,
+		'user':request.user,
+    },context_instance=RequestContext(request))
 
 @login_required
 def view_flashcard(request, flashcard_id):
@@ -154,6 +165,7 @@ def view_flashcard(request, flashcard_id):
         'p':p,
         'a':a,
         'owner': owner,
+		'user':request.user,
         })
 
     return render_to_response('flashcard/viewquest.html',var)
