@@ -25,26 +25,7 @@
     <favorites_list name="flashcardproject" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="base.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/flashcard/base.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="5" selection-start="0" selection-end="19" vertical-scroll-proportion="-0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="base.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/account/base.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="19" selection-start="19" selection-end="19" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -59,22 +40,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/static/css/bootstrap.css" />
-        <option value="$PROJECT_DIR$/templates/flashcard/delsuccess.html" />
-        <option value="$PROJECT_DIR$/flashcardapp/urls.py" />
         <option value="$PROJECT_DIR$/flashcardapp/views.py" />
         <option value="$PROJECT_DIR$/templates/flashcard/search.html" />
         <option value="$PROJECT_DIR$/static/css/mainpage_style.css" />
         <option value="$PROJECT_DIR$/Registration/views.py" />
         <option value="$PROJECT_DIR$/templates/registration/regis_succes.html" />
         <option value="$PROJECT_DIR$/templates/flashcard/viewquest.html" />
-        <option value="$PROJECT_DIR$/templates/mainpage/index.html" />
         <option value="$PROJECT_DIR$/flashcardapp/templatetags/gavatar.py" />
         <option value="$PROJECT_DIR$/flashcardapp/templatetags/gravatar.py" />
         <option value="$PROJECT_DIR$/templates/flashcard/base.html" />
         <option value="$PROJECT_DIR$/settings.py" />
         <option value="$PROJECT_DIR$/account/views.py" />
         <option value="$PROJECT_DIR$/templates/account/base.html" />
+        <option value="$PROJECT_DIR$/templates/mainpage/index.html" />
+        <option value="$PROJECT_DIR$/Main_page/urls.py" />
+        <option value="$PROJECT_DIR$/Main_page/views.py" />
+        <option value="$PROJECT_DIR$/templates/mainpage/invalid.html" />
       </list>
     </option>
   </component>
@@ -110,7 +91,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -157,7 +137,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="flashcard" />
+              <option name="myItemId" value="mainpage" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -175,7 +155,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="account" />
+              <option name="myItemId" value="flashcard" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -189,12 +169,27 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="account" />
+              <option name="myItemId" value="Registration" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flashcardproject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flashcardproject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Main_page" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -429,7 +424,7 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32885906" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.42716238" sideWeight="0.67114097" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4757208" sideWeight="0.67114097" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30500758" sideWeight="0.3238255" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32941177" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -496,56 +491,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/flashcard/search.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="0" selection-start="341" selection-end="341" vertical-scroll-proportion="0.7335244" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/mainpage_style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="11" selection-start="324" selection-end="324" vertical-scroll-proportion="0.045333333" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/registration/regis_succes.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="13" selection-start="276" selection-end="276" vertical-scroll-proportion="-3.9230769" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Registration/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="0" selection-start="842" selection-end="842" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flashcardapp/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="14" selection-start="260" selection-end="260" vertical-scroll-proportion="0.2084063" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/flashcard/viewquest.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="14" selection-start="341" selection-end="341" vertical-scroll-proportion="0.25137615" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Main_page/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="41" selection-start="795" selection-end="795" vertical-scroll-proportion="0.4045534" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Main_page/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/mainpage/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="104" column="50" selection-start="3890" selection-end="3890" vertical-scroll-proportion="0.0" />
@@ -563,21 +508,71 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/account/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="4" selection-start="706" selection-end="706" vertical-scroll-proportion="0.4168126">
-          <folding />
-        </state>
+        <state line="18" column="4" selection-start="706" selection-end="706" vertical-scroll-proportion="0.4168126" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/flashcard/base.html">
+    <entry file="file://$PROJECT_DIR$/templates/flashcard/main.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="5" selection-start="0" selection-end="19" vertical-scroll-proportion="-0.0">
-          <folding />
-        </state>
+        <state line="36" column="21" selection-start="1769" selection-end="1769" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/mainpage/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/account/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="19" selection-start="19" selection-end="19" vertical-scroll-proportion="0.0">
+        <state line="18" column="12" selection-start="19" selection-end="676" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/flashcard/creatingsuccess.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="11" selection-start="122" selection-end="122" vertical-scroll-proportion="0.18715596" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/flashcard/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main_page/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="29" selection-start="494" selection-end="494" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main_page/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="0" selection-start="1149" selection-end="1149" vertical-scroll-proportion="0.9060773" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/mainpage/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="84" column="43" selection-start="3538" selection-end="3538" vertical-scroll-proportion="0.03195489">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Registration/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Registration/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="0" selection-start="957" selection-end="957" vertical-scroll-proportion="0.42114696">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/mainpage/invalid.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="66" selection-start="373" selection-end="373" vertical-scroll-proportion="0.41541353">
           <folding />
         </state>
       </provider>

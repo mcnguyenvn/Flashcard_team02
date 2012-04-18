@@ -21,18 +21,21 @@ def main_page(request):
   user = authenticate(username=username, password=password)
   if user is not None:
    if user.is_active:
-    login(request, user)
-    return HttpResponseRedirect("../flashcard")
+        login(request, user)
+        return HttpResponseRedirect("../flashcard")
    else:
-    state = 0
+        return HttpResponseRedirect("../invalid")
   else:
-   state = -1
+   return HttpResponseRedirect("../invalid")
 
  variables = Context({
   'state': state,
  })
  
  return render_to_response('mainpage/index.html',variables,context_instance=RequestContext(request))
+
+def invalid(request):
+    return render_to_response('mainpage/invalid.html')
 
 def logout_page(request):
     logout(request)
