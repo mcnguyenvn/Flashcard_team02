@@ -1,1 +1,28 @@
-{% extends "account/base.html" %}
+{% extends "flashcard/base.html" %}
+
+{% block content %}
+    <div class="span9" align="center">
+        <font size="3" face="verdana" color="red">
+            {% if changed %}
+                <li> Your profile has been changed. </li>
+            {% else %}
+                {% if error == 1 %}
+                    <li> Your form is not correct. Please try again. </li>
+                {% endif %}
+            {% endif %}
+        </font>
+        <br/>
+        <br/>
+        <form method="post" action=".">
+            <label>First Name</label>
+            <input type="text" name="first_name" value="{{ user.first_name }}"><br />
+            <label>Last Name</label>
+            <input type="text" name="last_name" value="{{ user.last_name }}"><br />
+            <label>Email</label>
+            <input type="email" name="email" value="{{ user.email }}"><br/>
+            <p><a href="/user/{{ user.username }}/changepassword/">Change Your Password</a></p>
+            <input class="btn btn-primary" type="submit" value="Submit">
+            <input class="btn btn-danger" type="reset" value="Cancel">
+        </form>
+    </div>
+{% endblock %}

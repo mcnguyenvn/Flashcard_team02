@@ -1,119 +1,26 @@
-﻿{% load gravatar %}
-{% load static %}
-{% get_static_prefix as STATIC_PREFIX %}
+﻿{% extends "flashcard/origin.html" %}
 
-<!DOCTYPE html>
-<html lang="en"><head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <meta charset="utf-8">
-    <title> {{ title }}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <!-- styles -->
-    <link href="{{ STATIC_PREFIX }}css/bootstrap.css" rel="stylesheet">
-	<link href="{{ STATIC_PREFIX }}css/table_style.css" rel="stylesheet">
-    <link href="{{ STATIC_PREFIX }}css/flashcardstyle.css" rel="stylesheet">
-	<style type="text/css">
-      body {
-        padding-top: 90px;
-        padding-bottom: 40px;
-      }
-      .sidebar-nav {
-        padding: 9px 0;
-      }
-    </style>
-    <link href="{{ STATIC_PREFIX }}css/bootstrap-responsive.css" rel="stylesheet">
-  </head>
-
-  <body>
-
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container-fluid">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="/flashcard/"> Flashcard - INT 2026 - Spring 2012 </a>
-
-              <form action="/flashcard/search/" method="GET" class="navbar-search pull-left">
-				<input type="text" name="q" value="{{ query|escape }}" class="search-query" placeholder="Search">
-			  </form>
-
-          <div class="nav-collapse">
-				<p class="navbar-text pull-right">
-							<img height="30" src="{% gravatar_url user.email %}" width="30">
-							<font size = "5" color="yellow"> {{ user.username }} </font>
-                        <a href="/logout/"> Log out </a>
-                </p>
-          </div>
-		</div>
-      </div>
-    </div>
-
-    <div class="container-fluid">
-      <div class="row-fluid">
-        <div class="span3">
-          <div class="well sidebar-nav">
-            <ul class="nav nav-list">
-              <li class="nav-header"> Menu </li>
-              <li><a href="/user/profile/"> My Account </a></li>
-              <li><a href="/user/changepassword/"> Change Password </a></li>
-              
-			  <li class="nav-header"> My Flashcards </li>
-              <li><a href="/user/flashcardlist/"> View My Flashcard </a></li>
-              <li><a href="/flashcard/create"> New Flashcard </a></li>
-              
-			  <li class="nav-header"> Categories </li>
-              <li><a href="/flashcard/title/art">  Art 				 </a></li>
-			  <li><a href="/flashcard/title/bae">	Business & Economics </a></li>
-			  <li><a href="/flashcard/title/cos">	Computer Science     </a></li>
-			  <li><a href="/flashcard/title/geo">	Geography            </a></li>
-			  <li><a href="/flashcard/title/gov">	Government           </a></li>
-			  <li><a href="/flashcard/title/his">	History              </a></li>
-			  <li><a href="/flashcard/title/mat">	Math				 </a></li>
-			  <li><a href="/flashcard/title/mus">	Music                </a></li>
-		      <li><a href="/flashcard/title/fol">	Foreign Language     </a></li>
-			  <li><a href="/flashcard/title/sci">	Science              </a></li>
-			  <li><a href="/flashcard/title/phe">	PE & Health          </a></li>
-			  <li><a href="/flashcard/title/rel">	Religion             </a></li>
-	
-			</ul>
-          </div><!--/.well -->
-     </div><!--/span-->
-    
-	{% block content %}
-
-	{% endblock %}
-	
-      </div><!--/row-->
-
-      <hr>
-
-      <footer>
-        <p> Group 02 </p>
-      </footer>
-
-    </div>
-	
-    <script src="{{ STATIC_PREFIX }}javascript/jquery.js"></script>
-	<script src="{{ STATIC_PREFIX }}javascript/edit.js"></script>
-    <script src="{{ STATIC_PREFIX }}javascript/bootstrap-transition.js"></script>
-    <script src="{{ STATIC_PREFIX }}javascript/bootstrap-alert.js"></script>
-    <script src="{{ STATIC_PREFIX }}javascript/bootstrap-modal.js"></script>
-    <script src="{{ STATIC_PREFIX }}javascript/bootstrap-dropdown.js"></script>
-    <script src="{{ STATIC_PREFIX }}javascript/bootstrap-scrollspy.js"></script>
-    <script src="{{ STATIC_PREFIX }}javascript/bootstrap-tab.js"></script>
-    <script src="{{ STATIC_PREFIX }}javascript/bootstrap-tooltip.js"></script>
-    <script src="{{ STATIC_PREFIX }}javascript/bootstrap-popover.js"></script>
-    <script src="{{ STATIC_PREFIX }}javascript/bootstrap-button.js"></script>
-    <script src="{{ STATIC_PREFIX }}javascript/bootstrap-collapse.js"></script>
-    <script src="{{ STATIC_PREFIX }}javascript/bootstrap-carousel.js"></script>
-    <script src="{{ STATIC_PREFIX }}javascript/bootstrap-typeahead.js"></script>
-
-  
-
-</body></html>
+{% block sidebar %}
+    <div class="sidebar-nav">
+        <ul class="nav nav-list well">
+            {% if user.is_authenticated %}
+                <li class="nav-header"> Options </li>
+                <a class="btn btn-danger" href="/flashcard/create/"> Create New Flashcard</a>
+                <li><a href="/user/{{ user.username }}/flashcardlist/"> My Flashcard </a></li>
+            {% endif %}
+            <li class="nav-header"> Categories </li>
+            <li><a href="/flashcard/title/art">   Art 				 </a></li>
+            <li><a href="/flashcard/title/bae"> 	Business & Economics </a></li>
+            <li><a href="/flashcard/title/cos"> 	Computer Science     </a></li>
+            <li><a href="/flashcard/title/geo"> 	Geography            </a></li>
+            <li><a href="/flashcard/title/gov"> 	Government           </a></li>
+            <li><a href="/flashcard/title/his"> 	History              </a></li>
+            <li><a href="/flashcard/title/mat"> 	Math				 </a></li>
+            <li><a href="/flashcard/title/mus">   Music                </a></li>
+            <li><a href="/flashcard/title/fol"> 	Foreign Language     </a></li>
+            <li><a href="/flashcard/title/sci"> 	Science              </a></li>
+            <li><a href="/flashcard/title/phe"> 	PE & Health          </a></li>
+            <li><a href="/flashcard/title/rel"> 	Religion             </a></li>
+        </ul>
+    </div><!--/.well -->
+{% endblock %}

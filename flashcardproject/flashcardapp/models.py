@@ -3,12 +3,14 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
+
 class FlashCard(models.Model):
     title = models.CharField(max_length = 255, null = True)
     description = models.CharField(max_length = 500 , null = True)
     grade = models.CharField(max_length = 255 , null = True)
     subject = models.CharField(max_length = 255 , null = True)
     user = models.ForeignKey(User, unique=False)
+#    liker = models.ManyToManyField(User, unique=False)
 
     def copy(self, flashcard):
         self.title = flashcard.title

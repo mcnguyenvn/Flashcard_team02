@@ -1,53 +1,110 @@
 {% extends "registration/base.html" %}
 
+{% block header %}
+    <title>Sign up</title>
+    <link href="{{ STATIC_PREFIX }}css/validate.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript">
+        $(document).ready(function() {
+            // validate signup form on keyup and submit
+            var validator = $("#signupform").validate({
+                rules: {
+                    username: {
+                        required: true,
+                        minlength: 5,
+                    },
+                    password: {
+                        required: true,
+                        minlength: 8
+                    },
+                    password_confirm: {
+                        required: true,
+                        minlength: 5,
+                        equalTo: "#password"
+                    },
+                    email: {
+                        required: true,
+                        email: true
+                    }
+                },
+                messages: {
+                    username: {
+                        required: "Enter a username",
+                        minlength: jQuery.format("Enter at least {0} characters"),
+                        remote: jQuery.format("{0} is already in use")
+                    },
+                    password: {
+                        required: "Provide a password",
+                        rangelength: jQuery.format("Enter at least {0} characters")
+                    },
+                    password_confirm: {
+                        required: "Repeat your password",
+                        minlength: jQuery.format("Enter at least {0} characters"),
+                        equalTo: "Enter the same password as above"
+                    },
+                    email: {
+                        required: "Please enter a valid email address",
+                        minlength: "Please enter a valid email address"
+                    }
+                },
+                // the errorPlacement has to take the table layout into account
+                errorPlacement: function(error, element) {
+                    if ( element.is(":radio") )
+                        error.appendTo( element.parent().next().next() );
+                    else if ( element.is(":checkbox") )
+                        error.appendTo ( element.next() );
+                    else
+                        error.appendTo( element.parent().next() );
+                },
+                // set this class to error-labels to indicate valid fields
+                success: function(label) {
+                    // set &nbsp; as text for IE
+                    label.html("&nbsp;").addClass("checked");
+                }
+            });
+        });
+    </script>
+{% endblock %}
+
 {% block content %}
-    <div align = "center">
-			<table> <tr> <td> <p> {{ state }} </p> </td> </tr> </table>
-			<form method="post" action=".">
+    <div class="row" style="font-family: verdana">
+        <div class="span4 offset4">
+            {% if notif == 1 %}
+                <div class="alert alert-error">
+                    <a class="close" data-dismiss="alert">x</a>
+                    <strong>Warning!</strong> There are something wrong. Please try again.
+                </div>
+            {% endif %}
+            <form id="signupform" method="post" action=".">
                 <table>
-				<tr> 
-				  <td> 
-				    <p> Tên đăng nhập : </br>
-				    <small> (Tối đa 30 kí tự , bao gồm chữ hoa , chữ thường và gạch dưới) </small> </br>	
-				  </td>
-				  <td>
-				    <input type="text" name="username" value="{{ username }}" size="50"/> </br> </p>
-				  </td>
-				</tr>
-				<tr>
-				  <td>
-				    <p> Mật khẩu : </p>
-				  </td>
-				  <td>
-				    <input type="password" name="password1" value="{{ password1 }}" size="50"/> </br> </p>
-				  </td>
-				</tr>
-				<tr>
-				  <td>
-				    <p> Mật khẩu : </p>
-				  </td>
-				  <td>
-				    <input type="password" name="password2" value="{{ password2 }}" size="50"/> </br> </p>
-				  </td>
-				</tr>
-				<tr>
-				  <td>
-				    <p> Email : </p>
-				  </td>
-				  <td>
-				    <input type="text" name="email1" value="{{ email1 }}" size="50"/> </br> </p>
-				  </td>
-				</tr>
-                <tr>
-				  <td>
-				    <p> Email : </p>
-				  </td>
-				  <td>
-				    <input type="text" name="email2" value="{{ email2 }}" size="50"/> </br> </p>
-				  </td>
-				</tr>	
-			    <td align="center"><input type="submit" value="Đăng ký" action = "" class="button"/></td>
-			   </table>	
-			</form>		
-	   </div>
+                    <tr>
+                        <td><label class="label" id="lfirstname" for="username">Username</label></td>
+                        <td><input id="username" name="username" type="text" placeholder="Username"/></td>
+                        <td class="status"></td>
+                    </tr>
+                    <tr>
+                        <td><label class="label" id="lpassword" for="password">Password</label></td>
+                        <td><input id="password" name="password" type="password" placeholder="Password"/></td>
+                        <td class="status"></td>
+                    </tr>
+                    <tr>
+                        <td><label class="label" id="lpassword_confirm" for="password_confirm">Confirm Password</label></td>
+                        <td><input id="password_confirm" name="password_confirm" type="password" placeholder="Confirm Password"/></td>
+                        <td class="status"></td>
+                    </tr>
+                    <tr>
+                        <td><label class="label" id="lemail" for="email">Email Address</label></td>
+                        <td><input id="email" name="email" type="text" placeholder="Email"/></td>
+                        <td class="status"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                            <input class="btn btn-primary" type="submit" value="Signup"/>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
 {% endblock %}

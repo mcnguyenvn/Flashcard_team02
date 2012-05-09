@@ -1,41 +1,33 @@
 ﻿# Create your views here.
 
-from django.contrib.auth.models import User
-from django.http import HttpResponse , Http404, HttpResponseRedirect
-from django.template import Context
-from django.template import RequestContext
-from django.template.loader import get_template
+from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.contrib.auth import authenticate, login , logout
-from django.contrib.auth.signals import user_logged_in , user_logged_out
+from django.template.context import RequestContext
+
 
 def main_page(request):
+    if request.user.is_authenticated():
+        return HttpResponseRedirect("/flashcard")
+    return render_to_response('mainpage/index.html')
 
- username = password = ''
+def login_page(request):
+    error = 0
+    if request.POST:
+        username = request.POST.get('username')
+        password = request.POST.get('password')
 
- state = 1
- if request.POST:
-  username = request.POST.get('username')
-  password = request.POST.get('password')
-        
-  user = authenticate(username=username, password=password)
-  if user is not None:
-   if user.is_active:
-        login(request, user)
-        return HttpResponseRedirect("../flashcard")
-   else:
-        return HttpResponseRedirect("../invalid")
-  else:
-   return HttpResponseRedirect("../invalid")
-
- variables = Context({
-  'state': state,
- })
- 
- return render_to_response('mainpage/index.html',variables,context_instance=RequestContext(request))
-
-def invalid(request):
-    return render_to_response('mainpage/invalid.html')
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            if user.is_active:
+                login(request, user)
+                return HttpResponseRedirect("/flashcard/")
+            else:
+                error = 1
+        else:
+            error = 1
+    variables = RequestContext(request, {'error': error})
+    return render_to_response('mainpage/login.html', variables)
 
 def logout_page(request):
     logout(request)

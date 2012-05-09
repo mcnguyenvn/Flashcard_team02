@@ -5,7 +5,8 @@
 <html lang="en"><head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
-    <title> {{ title }}</title>
+    {% block header %}
+    {% endblock %}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -34,6 +35,19 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
+            <div class="container" style="font-family: verdana">
+                <a class="brand"><strong>Flashcard</strong></a>
+                <div class="nav-collapse collapse">
+                    <ul class="nav">
+                        <li><a href="/flashcard/">Home</a></li>
+                        <li><a href="https://github.com/cuongnm92/Flashcard_team02" target="_blank">Project Repository</a></li>
+                        <li><a rel="popover" href="#">About Us</a></li>
+                    </ul>
+                    <form action="/flashcard/search/" method="GET" class="navbar-search pull-left">
+                        <input type="text" name="q" value="{{ query|escape }}" class="search-query span3" placeholder="Search">
+                    </form>
+                </div>
+            </div>
 		</div>
       </div>
     </div>
@@ -44,19 +58,18 @@
 	
     <script src="{{ STATIC_PREFIX }}javascript/jquery.js"></script>
 	<script src="{{ STATIC_PREFIX }}javascript/edit.js"></script>
-    <script src="{{ STATIC_PREFIX }}javascript/bootstrap-transition.js"></script>
-    <script src="{{ STATIC_PREFIX }}javascript/bootstrap-alert.js"></script>
-    <script src="{{ STATIC_PREFIX }}javascript/bootstrap-modal.js"></script>
-    <script src="{{ STATIC_PREFIX }}javascript/bootstrap-dropdown.js"></script>
-    <script src="{{ STATIC_PREFIX }}javascript/bootstrap-scrollspy.js"></script>
-    <script src="{{ STATIC_PREFIX }}javascript/bootstrap-tab.js"></script>
-    <script src="{{ STATIC_PREFIX }}javascript/bootstrap-tooltip.js"></script>
-    <script src="{{ STATIC_PREFIX }}javascript/bootstrap-popover.js"></script>
-    <script src="{{ STATIC_PREFIX }}javascript/bootstrap-button.js"></script>
-    <script src="{{ STATIC_PREFIX }}javascript/bootstrap-collapse.js"></script>
-    <script src="{{ STATIC_PREFIX }}javascript/bootstrap-carousel.js"></script>
-    <script src="{{ STATIC_PREFIX }}javascript/bootstrap-typeahead.js"></script>
-
-  
-
+    <script src="{{ STATIC_PREFIX }}javascript/bootstrap.js"></script>
+    <script>
+        $(function(){
+            $("a[rel=popover]").popover({
+                placement: "bottom",
+                title: "Group 02 - K55CA - ĐHCN - ĐHQGHN",
+                content: "<p>- Nguyễn Thạc Dư </p>" +
+                        "<p>- Nguyễn Mạnh Cường </p>" +
+                        "<p>- Đường Minh Dũng </p>" +
+                        "<p>- Trương Thành Công </p>" +
+                        "<p>- Đỗ Thành Đạt </p>"
+            })
+        })
+    </script>
 </body></html>

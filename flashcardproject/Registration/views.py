@@ -2,43 +2,57 @@
 
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import PasswordResetForm
-from django.http import HttpResponse , Http404, HttpResponseRedirect
-from django.template import Context
-from django.template import RequestContext
-from django.template.loader import get_template
+from django.core.mail import send_mail
+from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
-from django.contrib.auth import authenticate, login , logout
-from django.contrib.auth.signals import user_logged_in , user_logged_out
+from django.template.context import RequestContext
 
 def register(request):
-
-    state = "Đăng kí"
-    username = email = password = ''
+    if request.user.is_authenticated():
+        return HttpResponseRedirect('/flashcard/')
+    notif = 0
     if request.POST:
         username = request.POST.get('username')
-        password = request.POST.get('password1')
-        email    = request.POST.get('email1')
-
+        password = request.POST.get('password')
+        email    = request.POST.get('email')
+        if username == '' or password == '' or email == '':
+            notif = 1
+            variables = RequestContext(request, {'notif': notif})
+            return render_to_response('registration/regis.html', variables)
         user = User.objects.create_user(username, email, password)
-
         user.save()
-
         return HttpResponseRedirect('../regis_success')
-
-    variables=Context({
-        'state' : state,
-    })
-
-    return render_to_response('registration/regis.html',variables,context_instance=RequestContext(request))
+    variables = RequestContext(request, {'notif': notif})
+    return render_to_response('registration/regis.html', variables)
 
 def regis_success(request):
-
+    if request.user.is_authenticated():
+        return HttpResponseRedirect('/flashcard/')
     return render_to_response('registration/regis_succes.html')
 
 def reset_password(request):
+    if request.user.is_authenticated():
+        return HttpResponseRedirect('/flashcard/')
+    error = 0
     form = PasswordResetForm()
-    return render_to_response('registration/lostpassword.html', {'form': form})
+    if request.POST:
+        form = PasswordResetForm(request.POST)
+        if form.is_valid():
+            email = form.clean_email()
+            #username = User.objects.get(email = email)
+            #password = username.password
+            send_mail(
+                'Flashcard Reset Password',
+                'test',
+                ''
+                [email],
+                fail_silently=True)
+            return HttpResponseRedirect('/flashcard/')
+        else:
+            error = 1
+    return render_to_response('registration/lostpassword.html', {'form': form, 'error': error})
 
 def reset_success(request):
-
+    if request.user.is_authenticated():
+        return HttpResponseRedirect('/flashcard/')
     return render_to_response('resetsuccess.html')

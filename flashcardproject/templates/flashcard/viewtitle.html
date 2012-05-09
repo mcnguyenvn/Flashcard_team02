@@ -1,19 +1,31 @@
 {% extends "flashcard/base.html" %}
 
 {% block content %}
-<div class="span9">
+<div class="span9 offset3">
+    <div class="row-fluid">
+    <div class="span7 offset5">
 	{% if objects %}
-  		<ul>
-  		{% for flashcard in objects %}
-  			<li>
-                <a href="/flashcard/{{ flashcard.id }}/">
-  					<font size="4" color="blue">{{ flashcard.title }} </font>
-  				</a>
-  			</li>
-  		{% endfor %}
-  		</ul>
+        {% for flashcard in objects %}
+            <h3>
+            <div class="span1">
+                <span class="label label-important"><i class="icon-heart icon-white"></i></span>
+            </div>
+            </h3>
+            <div class="span11">
+                <h3>
+                <a href="/flashcard/{{ flashcard.id }}/" style="color: green;">
+                    {{ flashcard.title }}
+                </a>
+                </h3>
+                <a href="/user/{{ flashcard.user }}" style="font-style: italic;">{{ flashcard.user }}</a>
+                <span style="font-size: smaller;">{{ flashcard.description }}</span>
+            </div>
+
+        {% endfor %}
   	{% else %}
   		<p> There is no FlashCard </p>
-  	{% endif %}	
-</div>	
+  	{% endif %}
+    </div>
+</div>
+</div>
 {% endblock %}

@@ -1,0 +1,30 @@
+{% extends "mainpage/base.html" %}
+
+{% block top %}
+    <div class="container">
+        <a class="brand" style="font-family: verdana"><strong>Flashcard</strong></a>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <center>
+    <div style="height: 75%; width:50%; font-family: verdana">
+        {% if error == 1 %}
+            <div class="alert alert-error">
+                <a class="close" data-dismiss="alert">x</a>
+                <strong>Wrong User and Password combination</strong>
+            </div>
+        {% endif %}
+        <div class="hero-unit">
+            <form action="." method="post">
+                <h2>Sign in to Flashcard</h2>
+                <p><input class="text-input" type="text" name="username" placeholder="Username"></p>
+                <p><input class="text-input" type="password" name="password" placeholder="Password"></p>
+                <input class="btn btn-primary" type="submit" value="Sign in">
+                <input value="1" name="remember_me" type="checkbox">
+                <span>Remember me</span>
+            </form>
+        </div>
+    </div>
+    </center>
+{% endblock %}

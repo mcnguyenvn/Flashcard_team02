@@ -10,17 +10,46 @@ from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
 import settings
 
-@login_required
 def index(request):
+    Art = FlashCard.objects.filter(Q(subject='art')).order_by('-id')[:5]
+    Bae = FlashCard.objects.filter(Q(subject='bae')).order_by('-id')[:5]
+    Cos = FlashCard.objects.filter(Q(subject='cos')).order_by('-id')[:5]
+    Geo = FlashCard.objects.filter(Q(subject='geo')).order_by('-id')[:5]
+    Gov = FlashCard.objects.filter(Q(subject='gov')).order_by('-id')[:5]
+    His = FlashCard.objects.filter(Q(subject='his')).order_by('-id')[:5]
+    Mat = FlashCard.objects.filter(Q(subject='mat')).order_by('-id')[:5]
+    Mus = FlashCard.objects.filter(Q(subject='mus')).order_by('-id')[:5]
+    Fol = FlashCard.objects.filter(Q(subject='fol')).order_by('-id')[:5]
+    Sci = FlashCard.objects.filter(Q(subject='sci')).order_by('-id')[:5]
+    Peh = FlashCard.objects.filter(Q(subject='peh')).order_by('-id')[:5]
+    Rel = FlashCard.objects.filter(Q(subject='rel')).order_by('-id')[:5]
+
+    qfc = FlashCard.objects.all()
+    a = []
+    for fc in qfc:
+        a.append(fc.title)
+
     variables = Context({
 	  'user': request.user,
+      'Art': Art,
+      'Bae': Bae,
+      'Cos': Cos,
+      'Geo': Geo,
+      'Gov': Gov,
+      'His': His,
+      'Mat': Mat,
+      'Mus': Mus,
+      'Fol': Fol,
+      'Sci': Sci,
+      'Peh': Peh,
+      'Rel': Rel,
+      'a': a,
 	})
 
     return render_to_response('flashcard/main.html',variables,context_instance=RequestContext(request))
 
 @login_required
 def create(request):
-    
     if request.method == "POST":
         form = FlashCardForm(request.POST)
         if form.is_valid():
@@ -114,15 +143,13 @@ def edit(request, flashcard_id):
         'user':request.user,
         },context_instance=RequestContext(request))
 
-@login_required
 def search(request):
     query = request.GET.get('q', '')
     if query:
         qset = (
-            Q(prompt__icontains=query) |
-            Q(answer__icontains=query)
-            )
-        results = Question.objects.filter(qset).distinct()
+            Q(title__icontains=query)
+        )
+        results = FlashCard.objects.filter(qset).distinct()
     else:
         results = []
     return render_to_response("flashcard/search.html", {
@@ -132,7 +159,6 @@ def search(request):
     }, context_instance=RequestContext(request))
 	
 
-@login_required
 def view_title(request,sub):
     objects = FlashCard.objects.filter(subject=sub)
     return render_to_response('flashcard/viewtitle.html',{
@@ -140,12 +166,11 @@ def view_title(request,sub):
 		'user':request.user,
     },context_instance=RequestContext(request))
 
-@login_required
 def view_flashcard(request, flashcard_id):
 
     fc = get_object_or_404(FlashCard, pk = flashcard_id)
     quests = Question.objects.filter(flashcardID__exact = fc)
-
+    moreFc = FlashCard.objects.filter(Q(user=fc.user)).order_by('-id')[:5]
     p = ''
     a = ''
     for q in quests:
@@ -165,7 +190,8 @@ def view_flashcard(request, flashcard_id):
         'p':p,
         'a':a,
         'owner': owner,
-		'user':request.user,
+        'moreFc': moreFc,
+        'viewUser': fc.user,
         })
 
     return render_to_response('flashcard/viewquest.html',var)

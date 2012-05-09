@@ -1,0 +1,35 @@
+{% extends 'flashcard/base.html' %}
+
+{% load gravatar %}
+{% load static %}
+{% get_static_prefix as STATIC_PREFIX %}
+
+{% block content %}
+    <div class="span5 well">
+        <div class="row-fluid">
+            <div class="span5">
+                <img height="100" src="{% gravatar_url viewUser.email %}" width="100">
+            </div>
+            <div class="span7" style="text-align: justify">
+                {% if isOwner %}
+                    <a class="close" href="/user/{{ viewUser.username }}/edit"><i class="icon-edit" title="Edit"></i></a>
+                {% endif %}
+                <h3>
+                {% if viewUser.first_name == '' and viewUser.last_name == '' %}
+                    <span>{{ viewUser.username }}</span>
+                {% else %}
+                    <span>{{ viewUser.first_name }} {{ viewUser.last_name }}</span>
+                {% endif %}
+                </h3>
+                <br/>
+                <strong> Flashcard: </strong> {{ numberFlashcard }}
+                <br/><br/>
+                <strong> Email: </strong> {{ viewUser.email }}
+                <br/>
+                <strong> Joined: </strong> {{ viewUser.date_joined }}
+                <br/>
+                <strong> Last visit: </strong> {{ viewUser.last_login }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

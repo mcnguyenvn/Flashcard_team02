@@ -34,7 +34,7 @@ TIME_ZONE = 'Asia/Ho_Chi_Minh'
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
 # LANGUAGE_CODE = 'en-us'
-LANGUAGE_CODE = 'vi'
+LANGUAGE_CODE = 'en-us'
 
 SITE_ID = 1
 
@@ -170,3 +170,8 @@ LOGGING = {
 }
 
 QuestNumber = 10
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'demodjango@gmail.com'
+EMAIL_HOST_PASSWORD = '1234abcd@'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True

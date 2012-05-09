@@ -1,15 +1,29 @@
-{% extends "account/base.html" %}
+{% extends "flashcard/base_alter.html" %}
 
 {% block content %}
-    <div class='span9'>
-        {% if flashcards %}
-            <ul>
-            {% for flashcard in flashcards %}
-                <li><a href="/flashcard/{{ flashcard.id }}/">{{ flashcard.title }}</a></li>
-            {% endfor %}
-            </ul>
-        {% else %}
-            <p> You have no Flashcard. </p>
-        {% endif %}
+    <div class="span9 offset3">
+        <div class="row-fluid">
+            <div class="span7 offset5">
+                {% if flashcards %}
+                    {% for flashcard in flashcards %}
+                        <h3>
+                            <div class="span1">
+                                <span class="label label-important"><i class="icon-heart icon-white"></i></span>
+                            </div>
+                        </h3>
+                         <div class="span11">
+                            <h3>
+                            <a href="/flashcard/{{ flashcard.id }}/">
+                                {{ flashcard.title }}
+                            </a>
+                            </h3>
+                            <span style="font-style: italic;">{{ flashcard.description }}</span>
+                         </div>
+                    {% endfor %}
+                {% else %}
+                    <p> You have no Flashcard. </p>
+                {% endif %}
+            </div>
+        </div>
     </div>
 {% endblock %}

@@ -1,98 +1,151 @@
 ﻿{% extends "flashcard/base.html" %}
 
+{% block header %}
+    <style type="text/css">
+        .search-query {
+            background: url("../../static/images/icon_searchbox.png") no-repeat right;
+        }
+    </style>
+{% endblock %}
+
 {% block content %}  
   <div class="span9">
-          <div class="row-fluid">
-            <div class="span4">
-              <h2> Art </h2>
-              <p> Art is a term that describes a diverse range of human activities 
-			      and the products of those activities, but is most often understood 
-				  to refer to painting, film, photography, sculpture, and other visual media. </p>
-              <p><a class="btn" href="/flashcard/title/art"> View flashcard </a></p>
-            </div><!--/span-->
-            <div class="span4">
-              <h2> Business & Economics </h2>
-              <p>
-			    In the social sciences, economics is the study of human choice behavior and the 
-				methodology used to make associated investment and production decisions;
-			  </p>
-              <p><a class="btn" href="/flashcard/title/bae"> View flashcard </a></p>
-            </div><!--/span-->
-            <div class="span4">
-              <h2> Computer Science </h2>
-              <p>
-				 Computer science or computing science (abbreviated CS or CompSci) designates 
-			     the scientific and mathematical approach in computing . A computer scientist works 
-				 at a professional level .
-			  </p>
-              <p><a class="btn" href="/flashcard/title/cos"> View flashcard </a></p>
-            </div><!--/span-->
-          </div><!--/row-->
-          <div class="row-fluid">
-            <div class="span4">
-              <h2> Geography </h2>
-              <p>  Geography (from Greek - geographia, lit. "earth describe-write"[1]) is
-				   the science that studies the lands, features, inhabitants, and phenomena of Earth</p>
-              <p><a class="btn" href="/flashcard/title/geo"> View flashcard </a></p>
-            </div><!--/span-->
-            <div class="span4">
-              <h2> Government </h2>
-              <p>Government refers to the legislators, administrators, and arbitrators in the administrative 
-				  bureaucracy who control a state at a given time, and to the system of government by which they are organized.</p>
-              <p><a class="btn" href="/flashcard/title/gov"> View flashcard </a></p>
-            </div><!--/span-->
-            <div class="span4">
-              <h2> History </h2>
-              <p> History (from Greek - historia, meaning "inquiry, knowledge acquired by investigation") is the discovery,
-			      collection, organization, and presentation of information about past events. 
-		      </p>
-              <p><a class="btn" href="/flashcard/title/his"> View flashcard </a></p>
-            </div><!--/span-->
-		   </div><!--/row-->	
-		   <div class="row-fluid">
-			<div class="span4">
-              <h2> Math </h2>
-              <p> Mathematics (from Greek μάθημα máthēma, “knowledge, study, learning”) is the study of quantity, structure, 
-			      space, and change.
-			  </p>
-              <p><a class="btn" href="/flashcard/title/mat"> View flashcard </a></p>
-            </div><!--/span-->
-			<div class="span4">
-              <h2> Music </h2>
-              <p> Music is an art form whose medium is sound and silence. Its common elements are pitch, 
-			      rhythm dynamics, and the sonic qualities of timbre and texture
-			  </p>
-              <p><a class="btn" href="/flashcard/title/mus"> View flashcard </a></p>
-            </div><!--/span-->
-			<div class="span4">
-              <h2> Foreign Language </h2>
-              <p> MA foreign language is a language indigenous to another country. It is also a language not spoken in the native country of the 
-			      person referred to . </p>
-              <p><a class="btn" href="/flashcard/title/fol"> View flashcard </a></p>
-            </div><!--/span-->
-          </div><!--/row-->
-		<div class="row-fluid">
-			<div class="span4">
-              <h2> Science </h2>
-              <p> Science (from Latin scientia, meaning "knowledge") is a systematic enterprise that builds and organizes knowledge in the form 
-			      of testable explanations and predictions about the universe
-			  </p>
-              <p><a class="btn" href="/flashcard/title/sci"> View flashcard </a></p>
-            </div><!--/span-->
-			<div class="span4">
-              <h2> PE & Health </h2>
-              <p> 
-			      Physical education (often abbreviated Phys. Ed. or P.E.) or gymnastics (gym or gym class) is a course taken during 
-				  primary and secondary education that encourages psychomotor learning in a play or movement exploration setting
-			  </p>
-              <p><a class="btn" href="/flashcard/title/peh"> View flashcard </a></p>
-            </div><!--/span-->
-			<div class="span4">
-              <h2> Religion </h2>
-              <p> Religion is a collection of cultural systems, belief systems, and worldviews that establishes symbols that relate 
-			      humanity to spirituality and, sometimes, to moral values. </p>
-              <p><a class="btn" href="/flashcard/title/rel"> View flashcard </a></p>
-            </div><!--/span-->
-          </div><!--/row-->
+    <div class="row-fluid">
+        <div class="span12" style="padding-left: 20px">
+            <form action="/flashcard/search/" method="GET">
+                <input type="text" name="q" value="{{ query|escape }}" class="search-query span4" placeholder="Search">
+            </form>
+        </div>
+        <div class="span12">
+            <div class="row-fluid">
+                <div class="span4">
+                    <h3> Art </h3>
+                    {% for object in Art %}
+                        <div style="margin-bottom: 4px">
+                            <span class="label label-success" > <i class="icon-heart icon-white"></i></span>
+                            <a href="/flashcard/{{object.id}}" style="text-decoration: none;  font-weight: bold">{{object.title}}</a>
+                        </div>
+                    {% endfor %}
+                    <p><a href="/flashcard/title/art" style="font-style: italic;"> &gt;&gt; View more </a></p>
+                </div><!--/span-->
+                <div class="span4">
+                    <h3> Business & Economics </h3>
+                    {% for object in Bae %}
+                        <div style="margin-bottom: 4px">
+                            <span class="label label-success" > <i class="icon-heart icon-white"></i></span>
+                            <a href="/flashcard/{{object.id}}" style="text-decoration: none;  font-weight: bold">{{object.title}}</a>
+                        </div>
+                    {% endfor %}
+                    <p><a href="/flashcard/title/bae" style="font-style: italic"> >> View more </a></p>
+                </div><!--/span-->
+                <div class="span4">
+                    <h3> Computer Science </h3>
+                    {% for object in Cos %}
+                        <div style="margin-bottom: 4px">
+                            <span class="label label-success" > <i class="icon-heart icon-white"></i></span>
+                            <a href="/flashcard/{{object.id}}" style="text-decoration: none;  font-weight: bold">{{object.title}}</a>
+                        </div>
+                    {% endfor %}
+                    <p><a href="/flashcard/title/cos" style="font-style: italic"> >> View more </a></p>
+                </div><!--/span-->
+            </div><!--/row-->
+            <div class="row-fluid">
+                <div class="span4">
+                    <h3> Geography </h3>
+                    {% for object in Geo %}
+                        <div style="margin-bottom: 4px">
+                            <span class="label label-success" > <i class="icon-heart icon-white"></i></span>
+                            <a href="/flashcard/{{object.id}}" style="text-decoration: none;  font-weight: bold">{{object.title}}</a>
+                        </div>
+                    {% endfor %}
+                    <p><a href="/flashcard/title/geo" style="font-style: italic"> >> View more </a></p>
+                </div><!--/span-->
+                <div class="span4">
+                    <h3> Government </h3>
+                    {% for object in Gov %}
+                        <div style="margin-bottom: 4px">
+                            <span class="label label-success" ><i class="icon-heart icon-white"></i></span>
+                            <a href="/flashcard/{{object.id}}" style="text-decoration: none;  font-weight: bold">{{object.title}}</a>
+                        </div>
+                    {% endfor %}
+                    <p><a href="/flashcard/title/gov" style="font-style: italic"> >> View more </a></p>
+                </div><!--/span-->
+                <div class="span4">
+                    <h3> History </h3>
+                    {% for object in His %}
+                        <div style="margin-bottom: 4px">
+                            <span class="label label-success" > <i class="icon-heart icon-white"></i></span>
+                            <a href="/flashcard/{{object.id}}" style="text-decoration: none;  font-weight: bold">{{object.title}}</a>
+                        </div>
+                    {% endfor %}
+                    <p><a href="/flashcard/title/his" style="font-style: italic"> >> View more </a></p>
+                </div><!--/span-->
+            </div><!--/row-->
+            <div class="row-fluid">
+                <div class="span4">
+                    <h3> Math </h3>
+                    {% for object in Mat %}
+                        <div style="margin-bottom: 4px">
+                            <span class="label label-success" > <i class="icon-heart icon-white"></i></span>
+                            <a href="/flashcard/{{object.id}}" style="text-decoration: none;  font-weight: bold">{{object.title}}</a>
+                        </div>
+                    {% endfor %}
+                    <p><a href="/flashcard/title/mat" style="font-style: italic"> >> View more </a></p>
+                </div><!--/span-->
+                <div class="span4">
+                    <h3> Music </h3>
+                    {% for object in Mus %}
+                        <div style="margin-bottom: 4px">
+                            <span class="label label-success" > <i class="icon-heart icon-white"></i></span>
+                            <a href="/flashcard/{{object.id}}" style="text-decoration: none;  font-weight: bold">{{object.title}}</a>
+                        </div>
+                    {% endfor %}
+                    <p><a href="/flashcard/title/mus" style="font-style: italic"> >> View more </a></p>
+                </div><!--/span-->
+                <div class="span4">
+                    <h3> Foreign Language </h3>
+                    {% for object in Fol %}
+                        <div style="margin-bottom: 4px">
+                            <span class="label label-success" > <i class="icon-heart icon-white"></i></span>
+                            <a href="/flashcard/{{object.id}}" style="text-decoration: none;  font-weight: bold">{{object.title}}</a>
+                        </div>
+                    {% endfor %}
+                    <p><a href="/flashcard/title/fol" style="font-style: italic"> >> View more </a></p>
+                </div><!--/span-->
+            </div><!--/row-->
+            <div class="row-fluid">
+                <div class="span4">
+                    <h3> Science </h3>
+                    {% for object in Sci %}
+                        <div style="margin-bottom: 4px">
+                            <span class="label label-success" > <i class="icon-heart icon-white"></i></span>
+                            <a href="/flashcard/{{object.id}}" style="text-decoration: none;  font-weight: bold">{{object.title}}</a>
+                        </div>
+                    {% endfor %}
+                    <p><a href="/flashcard/title/sci" style="font-style: italic"> >> View more </a></p>
+                </div><!--/span-->
+                <div class="span4">
+                    <h3> PE & Health </h3>
+                    {% for object in Peh %}
+                        <div style="margin-bottom: 4px">
+                            <span class="label label-success" > <i class="icon-heart icon-white"></i></span>
+                            <a href="/flashcard/{{object.id}}" style="text-decoration: none;  font-weight: bold">{{object.title}}</a>
+                        </div>
+                    {% endfor %}
+                    <p><a href="/flashcard/title/peh" style="font-style: italic"> >> View more </a></p>
+                </div><!--/span-->
+                <div class="span4">
+                    <h3> Religion </h3>
+                    {% for object in Rel %}
+                        <div style="margin-bottom: 4px">
+                            <span class="label label-success" > <i class="icon-heart icon-white"></i></span>
+                            <a href="/flashcard/{{object.id}}" style="text-decoration: none;  font-weight: bold">{{object.title}}</a>
+                        </div>
+                    {% endfor %}
+                    <p><a href="/flashcard/title/rel" style="font-style: italic"> >> View more </a></p>
+                </div><!--/span-->
+            </div><!--/row-->
+        </div>
+    </div>
   </div><!--/span-->
 {% endblock %}

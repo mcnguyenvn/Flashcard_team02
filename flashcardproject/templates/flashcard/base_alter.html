@@ -1,0 +1,26 @@
+{% extends "flashcard/origin.html" %}
+{% load gravatar %}
+{% load static %}
+{% get_static_prefix as STATIC_PREFIX %}
+
+{% block sidebar %}
+    <div class="thumbnail">
+        <div class="caption">
+            <div class="row-fluid" style="margin: 0px 10px 10px 10px">
+                <div class="span2">
+                    <img height="30" src="{% gravatar_url viewUser.email %}" width="30">
+                </div>
+                <div class="span10">
+                    {% if viewUser.first_name != '' or viewUser.last_name != '' %}
+                        <h3><a href="/user/{{ viewUser.username }}">{{ viewUser.first_name }} {{ viewUser.last_name }}</a></h3>
+                    {% else %}
+                        <h3><a href="/user/{{ viewUser.username }}">{{ viewUser.username }}</a></h3>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% block botsidebar %}
+
+    {% endblock %}
+{% endblock %}

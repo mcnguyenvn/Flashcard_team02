@@ -1,17 +1,48 @@
 {% extends "flashcard/base.html" %}
 
+{% block header %}
+    <style type="text/css">
+        .search-query {
+            background: url("../../static/images/icon_searchbox.png") no-repeat right;
+        }
+    </style>
+{% endblock %}
+
 {% block content %}
 	<div class="span9">
-		 
+        <div class="row-fluid">
+        <div class="span12" style="padding-left: 20px">
+            <form action="/flashcard/search/" method="GET">
+                <input type="text" name="q" value="{{ query|escape }}" class="search-query span4" placeholder="Search">
+            </form>
+        </div>
+        <div class="span12">
 		{% if results %}
 			<ul>
 				{% for q in results %}
-					<li> <a href="/flashcard/{{ q.flashcardID.id }}/"> {{ q.flashcardID.title }} </a> </l1>
+                    <h3>
+                        <div class="span1">
+                            <span class="label label-important"><i class="icon-heart icon-white"></i></span>
+                        </div>
+                    </h3>
+                    <div class="span11">
+                        <h3>
+                            <a href="/flashcard/{{ q.id }}/" style="color: green;">
+                                {{ q.title }}
+                            </a>
+                        </h3>
+                        <a href="/user/{{ q.user }}" style="font-style: italic;">
+                            {% include "name_display_current_user.html" %}
+                        </a>
+                        <span style="font-size: smaller;">{{ q.description }}</span>
+                    </div>
 				{% endfor %}
 			</ul>
 		{% else %}
 			<p>No flashcard found</p>
 		{% endif %}
+        </div>
+        </div>
 	</div>
 {% endblock %}
       

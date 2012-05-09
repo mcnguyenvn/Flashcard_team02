@@ -1,31 +1,55 @@
-{% extends "flashcard/base.html" %}
+{% extends "flashcard/base_alter.html" %}
+{% load gravatar %}
+{% load static %}
+{% get_static_prefix as STATIC_PREFIX %}
+
+{% block botsidebar %}
+    <div class="sidebar-nav">
+        <ul class="nav nav-list well">
+            <li class="nav-header"><a href="/user/{{ fc.user.username }}/flashcardlist">More from
+                {% if fc.user.first_name != '' or fc.user.last_name != '' %}
+                    {{ fc.user.first_name }} {{ fc.user.last_name }}
+                {% else %}
+                    {{ fc.user.username }}
+                {% endif %}
+                </a>
+            </li>
+            {% for mfc in moreFc %}
+                <li><a href="/flashcard/{{ mfc.id }}">{{ mfc.title }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
 
 {% block content %}
-
-	<link href="{{ STATIC_PREFIX }}css/table_style.css" rel="stylesheet">
-
-    <div class="span9">
-
-
-    <p> <font size ="5" color ="#adff2f"> {{ fc.title }} </font> </br>
+    <div class="span9 offset3">
+        <h2><strong> {{ fc.title }} </strong></h2>
+        <p style="font-size: small; font-style: italic;">{{ fc.description }}</p>
 	    {% if owner %}
-            You can <a href="/flashcard/{{ flashcard_id }}/edit/"> edit </a> or
-            <a href="/flashcard/{{flashcard_id}}/delete/"> delete </a> this flashcard .
-        {% else %}
-		    <font color = "#8b0000"> Only the authors of flashcard can update or delete </font>
+            <a href="/flashcard/{{ flashcard_id }}/edit/"><i class="icon-edit" title="Edit"></i></a>
+            <a href="/flashcard/{{flashcard_id}}/delete/"><i class="icon-remove" title="Delete"></i></a>
 	    {% endif %}
-    </p>
-    </div>
-	
-	<div class="body" align = "center">
-					{% if quests %}
-						<input type="hidden" id="hiddenprompt" name="variable" value="{{ p }}">
-						<input type="hidden" id="hiddenanswer" name="variable" value="{{ a }}">
 
-						<script type="text/javascript" src="/static/javascript/display.js"></script>
-					{% else %}
-						<p>No Flashcards found.</p>
-					{% endif %}
+		{% if quests %}
+			<input type="hidden" id="hiddenprompt" name="variable" value="{{ p }}">
+			<input type="hidden" id="hiddenanswer" name="variable" value="{{ a }}">
+			<script type="text/javascript" src="/static/javascript/display.js"></script>
+		{% else %}
+			<p>No Flashcards found.</p>
+		{% endif %}
 	</div>
-		
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'flashcard'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '{{ STATIC_PREFIX }}javascript/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 {% endblock %}

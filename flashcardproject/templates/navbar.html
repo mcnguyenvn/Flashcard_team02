@@ -1,0 +1,39 @@
+{% load gravatar %}
+{% load static %}
+{% get_static_prefix as STATIC_PREFIX %}
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+
+            <a class="brand"><strong>Flashcard</strong></a>
+
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    <li><a href="/flashcard/">Home</a></li>
+                    <li><a href="https://github.com/cuongnm92/Flashcard_team02" target="_blank">Project Repository</a></li>
+                </ul>
+                {% if user.is_authenticated %}
+                    <ul class="nav pull-right">
+                        <li style="margin-top: 4px"><img height="30" src="{% gravatar_url user.email %}" width="30"></li>
+                        <li><a href="/user/{{ user.username }}">{% include "name_display_current_user.html" %}</a></li>
+                        <li class="divider-vertical"></li>
+                        <li><a href="/user/{{ user.username }}/edit/"><i class="icon-wrench icon-white" title="Setting"></i></a></li>
+                        <li><a href="/logout/"><i class="icon-share icon-white" title="Logout"></i></a></li>
+                    </ul>
+                {% else %}
+                    <div class="nav pull-right">
+                        <ul class="nav">
+                            <li><a href="/regis/">Signup</a></li>
+                            <li><a href="/login/">Login</a></li>
+                        </ul>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
