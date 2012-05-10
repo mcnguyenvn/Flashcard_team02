@@ -10,15 +10,14 @@
                 rules: {
                     username: {
                         required: true,
-                        minlength: 5,
+                        minlength: 5
                     },
                     password: {
                         required: true,
-                        minlength: 8
+                        minlength: 6
                     },
                     password_confirm: {
                         required: true,
-                        minlength: 5,
                         equalTo: "#password"
                     },
                     email: {
@@ -38,7 +37,6 @@
                     },
                     password_confirm: {
                         required: "Repeat your password",
-                        minlength: jQuery.format("Enter at least {0} characters"),
                         equalTo: "Enter the same password as above"
                     },
                     email: {
@@ -66,12 +64,18 @@
 {% endblock %}
 
 {% block content %}
-    <div class="row" style="font-family: verdana">
+    <div class="row">
         <div class="span4 offset4">
             {% if notif == 1 %}
                 <div class="alert alert-error">
                     <a class="close" data-dismiss="alert">x</a>
-                    <strong>Warning!</strong> There are something wrong. Please try again.
+                    <strong>Warning!</strong> Please fill all the field.
+                </div>
+            {% endif %}
+            {% if notif == 2 %}
+                <div class="alert alert-error">
+                    <a class="close" data-dismiss="alert">x</a>
+                    <strong>Warning!</strong> This username has been taken.
                 </div>
             {% endif %}
             <form id="signupform" method="post" action=".">

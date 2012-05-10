@@ -9,28 +9,57 @@
     {% block header %}
     {% endblock %}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <!-- styles -->
+    <link rel="shortcut icon" href="{{ STATIC_PREFIX }}images/favicon.ico">
     <link href="{{ STATIC_PREFIX }}css/bootstrap.css" rel="stylesheet">
-    <link href="{{ STATIC_PREFIX }}css/bootstrap-responsive.css" rel="stylesheet">
+    <!-- styles -->
     <style type="text/css">
         body {
             padding-top: 60px;
             padding-bottom: 40px;
+            font-family: sans-serif;
         }
         .sidebar-nav {
             padding: 9px 0;
         }
     </style>
+    <link href="{{ STATIC_PREFIX }}css/bootstrap-responsive.css" rel="stylesheet">
 </head>
 
-<body style="font-family: sans-serif;">
-
-{% include "navbar.html" %}
-
-<div class="container-fluid">
+<body>
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="/flashcard/"><strong>Flashcard</strong></a>
+            <div class="navbar-text pull-right">
+                {% if user.is_authenticated %}
+                    <ul class="nav">
+                        <li style="margin-top: 4px"><img height="30" src="{% gravatar_url user.email %}" width="30"></li>
+                        <li><a href="/user/{{ user.username }}">{% include "name_display_current_user.html" %}</a></li>
+                        <li class="divider-vertical"></li>
+                        <li><a href="/user/{{ user.username }}/edit/"><i class="icon-wrench icon-white" title="Setting"></i></a></li>
+                        <li><a href="/logout/"><i class="icon-share icon-white" title="Logout"></i></a></li>
+                    </ul>
+                {% else %}
+                    <ul class="nav">
+                        <li><a href="/regis/">Signup</a></li>
+                        <li><a href="/login/">Login</a></li>
+                    </ul>
+                {% endif %}
+            </div>
+            <div class="nav-collapse">
+                <ul class="nav">
+                    <li><a href="https://github.com/cuongnm92/Flashcard_team02" target="_blank">Project Repository</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
     <div class="row-fluid">
         <div class="span3">
             {% block sidebar %}
@@ -43,9 +72,7 @@
         {% endblock %}
 
     </div><!--/row-->
-    <footer>
-        <p style="text-align: center; font-size: small;"> 2012 Powered by Group 02 - UET - K55CA </p>
-    </footer>
+
 </div>
 
 <script src="{{ STATIC_PREFIX }}javascript/jquery.js"></script>

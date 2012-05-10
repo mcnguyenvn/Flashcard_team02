@@ -171,7 +171,7 @@ LOGGING = {
 
 QuestNumber = 10
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'demodjango@gmail.com'
-EMAIL_HOST_PASSWORD = '1234abcd@'
+EMAIL_HOST_USER = 'flashcardwebapp@gmail.com'
+EMAIL_HOST_PASSWORD = '1a2b3c4d.'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True

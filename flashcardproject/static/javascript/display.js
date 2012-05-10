@@ -175,7 +175,7 @@ function Match(questions) {
       td=tr.insertCell(-1);
       td.id='tdm'+i;
       td.className='m';
-      td.innerHTML='<a href="javascript:M.move('+i+',-1);void(0)"><img src="http://flashcards.engrade.com/i/up_8.png"/></a> <a href="javascript:M.move('+i+',1);void(0)"><img src="http://flashcards.engrade.com/i/down_8.png"/></a>';
+      td.innerHTML='<a href="javascript:M.move('+i+',-1);void(0)"><img src="../images/up_8.png"/></a> <a href="javascript:M.move('+i+',1);void(0)"><img src="../images/down_8.png"/></a>';
 
       // Answer
       td=tr.insertCell(-1);
