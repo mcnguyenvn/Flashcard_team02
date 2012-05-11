@@ -12,6 +12,8 @@ def main_page(request):
     return render_to_response('mainpage/index.html')
 
 def login_page(request):
+    if request.user.is_authenticated():
+        HttpResponseRedirect('/flashcard')
     error = 0
     if request.POST:
         username = request.POST.get('username')
@@ -26,6 +28,8 @@ def login_page(request):
                 error = 1
         else:
             error = 1
+        variables = RequestContext(request, {'error': error})
+        return render_to_response('mainpage/login.html', variables)
     variables = RequestContext(request, {'error': error})
     return render_to_response('mainpage/login.html', variables)
 

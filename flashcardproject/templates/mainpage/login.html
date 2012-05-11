@@ -20,11 +20,15 @@
                 <h2>Sign in to Flashcard</h2>
                 <p><input class="text-input" type="text" name="username" placeholder="Username"></p>
                 <p><input class="text-input" type="password" name="password" placeholder="Password"></p>
-                <input class="btn btn-primary" type="submit" value="Sign in">
-                <input value="1" name="remember_me" type="checkbox">
-                <span>Remember me</span>
+                <button class="btn btn-primary" data-loading-text="...." type="submit">Sign in</button>
+                <a href="/resetpassword/"><span>Forgot Password?</span></a>
             </form>
         </div>
     </div>
     </center>
+    <script type="text/javascript">
+        $(function(){
+            $().button('loading');
+        })
+    </script>
 {% endblock %}

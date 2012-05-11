@@ -26,66 +26,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="origin.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/flashcard/origin.html">
+      <file leaf-file-name="base.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/mainpage/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="36" selection-start="647" selection-end="647" vertical-scroll-proportion="-3.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="regis.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/registration/regis.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="73" column="23" selection-start="2965" selection-end="2965" vertical-scroll-proportion="-1.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="lostpassword.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/registration/lostpassword.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="48" selection-start="130" selection-end="130" vertical-scroll-proportion="-4.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Registration/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="76" column="16" selection-start="3053" selection-end="3053" vertical-scroll-proportion="0.4224599">
-              <folding>
-                <element signature="e#26#50#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="search.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/flashcard/search.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="6.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/flashcard/main.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="12" selection-start="217" selection-end="217" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="base.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/flashcard/base.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="29" selection-start="88" selection-end="88" vertical-scroll-proportion="0.0">
+            <state line="47" column="34" selection-start="1643" selection-end="1643" vertical-scroll-proportion="0.29213482">
               <folding />
             </state>
           </provider>
@@ -106,22 +50,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/templates/mainpage/index.html" />
-        <option value="$PROJECT_DIR$/templates/navbar.html" />
-        <option value="$PROJECT_DIR$/templates/flashcard/main.html" />
-        <option value="$PROJECT_DIR$/templates/flashcard/base.html" />
-        <option value="$PROJECT_DIR$/static/javascript/display.js" />
-        <option value="$PROJECT_DIR$/templates/flashcard/viewtitle.html" />
-        <option value="$PROJECT_DIR$/templates/mainpage/base.html" />
-        <option value="$PROJECT_DIR$/templates/flashcard/origin.html" />
-        <option value="$PROJECT_DIR$/templates/registration/base.html" />
-        <option value="$PROJECT_DIR$/templates/account/userprofile.html" />
-        <option value="$PROJECT_DIR$/templates/account/changepassword.html" />
         <option value="$PROJECT_DIR$/templates/registration/regis.html" />
         <option value="$PROJECT_DIR$/settings.py" />
         <option value="$PROJECT_DIR$/Registration/forms.py" />
-        <option value="$PROJECT_DIR$/templates/registration/lostpassword.html" />
         <option value="$PROJECT_DIR$/Registration/views.py" />
+        <option value="$PROJECT_DIR$/static/javascript/display.js" />
+        <option value="$PROJECT_DIR$/templates/mainpage/login.html" />
+        <option value="$PROJECT_DIR$/templates/flashcard/main.html" />
+        <option value="$PROJECT_DIR$/templates/flashcard/viewquest.html" />
+        <option value="$PROJECT_DIR$/templates/registration/lostpassword.html" />
+        <option value="$PROJECT_DIR$/templates/mainpage/logout.html" />
+        <option value="$PROJECT_DIR$/templates/flashcard/main2.html" />
+        <option value="$PROJECT_DIR$/Main_page/views.py" />
+        <option value="$PROJECT_DIR$/templates/mainpage/index.html" />
+        <option value="$PROJECT_DIR$/templates/about_content.html" />
+        <option value="$PROJECT_DIR$/templates/mainpage/base.html" />
+        <option value="$PROJECT_DIR$/templates/flashcard/origin.html" />
       </list>
     </option>
   </component>
@@ -425,13 +369,13 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.30000004" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="Errors" />
     <property name="recentsLimit" value="5" />
+    <property name="options.lastSelected" value="Errors" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../test/demo/milk" />
     <property name="DefaultHtmlFileTemplate" value="Html" />
-    <property name="options.searchVisible" value="true" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="dynamic.classpath" value="false" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -518,23 +462,15 @@
       <option name="MULTIPROCESS" value="false" />
       <method />
     </configuration>
-    <configuration default="true" type="tests" factoryName="Unittests">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <module name="flashcardproject" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <option name="PUREUNITTEST" value="true" />
+    <configuration default="true" type="PyRemoteDebugConfigurationType" factoryName="Python Remote Debug">
+      <module name="" />
+      <option name="PORT" value="0" />
+      <option name="HOST" value="null" />
+      <option name="USE_MAPPING" value="false" />
+      <option name="REMOTE_ROOT" value="" />
+      <option name="LOCAL_ROOT" value="" />
+      <option name="REDIRECT_OUTPUT" value="true" />
+      <option name="SUSPEND_AFTER_CONNECT" value="true" />
       <method />
     </configuration>
     <configuration default="true" type="Python.DjangoServer" factoryName="Django server">
@@ -558,15 +494,23 @@
       <option name="launchJavascriptDebuger" value="false" />
       <method />
     </configuration>
-    <configuration default="true" type="PyRemoteDebugConfigurationType" factoryName="Python Remote Debug">
-      <module name="" />
-      <option name="PORT" value="0" />
-      <option name="HOST" value="null" />
-      <option name="USE_MAPPING" value="false" />
-      <option name="REMOTE_ROOT" value="" />
-      <option name="LOCAL_ROOT" value="" />
-      <option name="REDIRECT_OUTPUT" value="true" />
-      <option name="SUSPEND_AFTER_CONNECT" value="true" />
+    <configuration default="true" type="tests" factoryName="Unittests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <module name="flashcardproject" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PUREUNITTEST" value="true" />
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Doctests">
@@ -687,13 +631,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32852808" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32885906" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1798179" sideWeight="0.0" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16691957" sideWeight="0.0" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30500758" sideWeight="0.3238255" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32941177" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -760,115 +704,95 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/templates/flashcard/viewquest.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="39" selection-start="1564" selection-end="1564" vertical-scroll-proportion="0.63723606" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/registration/lostpassword.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="10" selection-start="645" selection-end="645" vertical-scroll-proportion="0.8988764" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/mainpage/inde.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-5.4414587" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/mainpage/logout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="31" selection-start="150" selection-end="186" vertical-scroll-proportion="0.3627639" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/flashcard/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="29" selection-start="88" selection-end="88" vertical-scroll-proportion="0.0" />
+        <state line="9" column="9" selection-start="424" selection-end="424" vertical-scroll-proportion="0.4550562" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/javascript/display.js">
+    <entry file="file://$PROJECT_DIR$/templates/mainpage/a.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="177" column="76" selection-start="5340" selection-end="5340" vertical-scroll-proportion="0.049270075">
+        <state line="0" column="0" selection-start="0" selection-end="18" vertical-scroll-proportion="-5.596929" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/flashcard/main.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="14" selection-start="232" selection-end="232" vertical-scroll-proportion="-1.6065259" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Registration/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="50" selection-start="367" selection-end="418" vertical-scroll-proportion="-2.7058823" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main_page/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/registration/regis.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="4" selection-start="90" selection-end="172" vertical-scroll-proportion="-3.6794627" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/mainpage/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="60" selection-start="225" selection-end="288" vertical-scroll-proportion="0.505618">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/name_display_current_user.html">
+    <entry file="file://$PROJECT_DIR$/templates/mainpage/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="148" vertical-scroll-proportion="0.0">
+        <state line="3" column="20" selection-start="75" selection-end="75" vertical-scroll-proportion="0.15547025">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/flashcard/viewtitle.html">
+    <entry file="file://$PROJECT_DIR$/Main_page/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="48" selection-start="652" selection-end="652" vertical-scroll-proportion="0.505618">
+        <state line="23" column="8" selection-start="745" selection-end="745" vertical-scroll-proportion="0.38502672">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/mainpage/base.html">
+    <entry file="file://$PROJECT_DIR$/templates/about_content.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="75" selection-start="390" selection-end="390" vertical-scroll-proportion="0.41458732">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/account/userprofile.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="46" selection-start="828" selection-end="828" vertical-scroll-proportion="-7.7777777">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/account/changepassword.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="96" selection-start="1495" selection-end="1495" vertical-scroll-proportion="0.5449438">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/registration/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="23" selection-start="721" selection-end="721" vertical-scroll-proportion="0.4550562">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="170" column="0" selection-start="6042" selection-end="6042" vertical-scroll-proportion="0.40875912">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flashcardapp/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="27" selection-start="235" selection-end="235" vertical-scroll-proportion="-1.281022">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Registration/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="0" selection-start="48" selection-end="48" vertical-scroll-proportion="0.14438502">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/flashcard/search.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="6.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/flashcard/origin.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="36" selection-start="647" selection-end="647" vertical-scroll-proportion="-3.0">
+        <state line="64" column="30" selection-start="2657" selection-end="2657" vertical-scroll-proportion="0.74088293">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/registration/regis.html">
+    <entry file="file://$PROJECT_DIR$/templates/mainpage/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="73" column="23" selection-start="2965" selection-end="2965" vertical-scroll-proportion="-1.0">
+        <state line="47" column="34" selection-start="1643" selection-end="1643" vertical-scroll-proportion="0.29213482">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/registration/lostpassword.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="48" selection-start="130" selection-end="130" vertical-scroll-proportion="-4.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Registration/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="16" selection-start="3053" selection-end="3053" vertical-scroll-proportion="0.4224599">
-          <folding>
-            <element signature="e#26#50#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>

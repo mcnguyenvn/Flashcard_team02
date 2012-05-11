@@ -37,9 +37,14 @@
 		{% else %}
 			<p>No Flashcards found.</p>
 		{% endif %}
+        <br/>
+        <a class="badge badge-important" href="#" data-toggle="collapse" data-target="#comment">
+            Comment
+        </a>
+        <div id="comment" class="collapse inactive">
+            <div id="disqus_thread"></div>
+        </div>
 	</div>
-
-    <div id="disqus_thread"></div>
     <script type="text/javascript">
         /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
         var disqus_shortname = 'flashcard'; // required: replace example with your forum shortname

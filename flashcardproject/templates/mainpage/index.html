@@ -1,7 +1,7 @@
 {% extends "mainpage/base.html" %}
 
 {% block header %}
-    <title>Flashcard Project</title>
+    <title>Home Page</title>
 {% endblock %}
 
 {% block content %}
@@ -24,8 +24,7 @@
                                 <input class="text-input" type="text" name="username" placeholder="Username"><br/>
                                 <input class="text-input" type="password" name="password" placeholder="Password"><br/>
                                 <input class="btn btn-primary" type="submit" value="Sign in">
-                                <input value="1" name="remember_me" type="checkbox">
-                                <span>Remember me</span>
+                                <a href="/resetpassword/"><span>Forgot Password?</span></a>
                             </form>
                         </div>
                         <div class="span12 well" style="margin: 0px;">
