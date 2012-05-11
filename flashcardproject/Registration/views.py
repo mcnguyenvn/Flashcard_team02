@@ -1,10 +1,14 @@
 ﻿# Create your views here.
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
+from django.core.validators import email_re
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template.context import RequestContext
 from Registration.forms import ForgotPasswordForm
+
+def is_valid_email(email):
+    return True if email_re.match(email) else False
 
 def register(request):
     if request.user.is_authenticated():
@@ -14,6 +18,14 @@ def register(request):
         username = request.POST.get('username')
         password = request.POST.get('password')
         email    = request.POST.get('email')
+        if len(username) < 5 or len(password) < 6 or not is_valid_email(email):
+            if len(username) < 5:
+                notif = 4
+            elif len(password) < 6:
+                notif = 5
+            else: notif = 6
+            variables = RequestContext(request, {'notif': notif})
+            return render_to_response('registration/regis.html', variables)
         regedUser = User.objects.filter(username__exact = username)
         if regedUser:
             notif = 2

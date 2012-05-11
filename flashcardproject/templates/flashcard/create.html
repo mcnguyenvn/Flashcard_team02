@@ -1,13 +1,29 @@
 {% extends "flashcard/base.html" %}
 
+{% block header %}
+    <title>Create Flashcard</title>
+{% endblock %}
+
 {% block content %}
-	<div class="span9" align="center">
+	<div class="span9">
 		<form method="post" action=".">
+            <h3>New Flashcards</h3>
+            <hr>
 			<table>
 				{{ form.as_table }}
 			</table>
-		   <br/>
-           <input class="btn btn-success" type="submit" value="Submit" />
+            <br/><br/>
+            <h3>Prompt/Answer</h3>
+            <hr>
+            {% for pform in promptForm %}
+                {% cycle '<div style="margin-left:9px">' '' %}
+                    {{ pform.label }}
+                    {{ pform }}
+                {% cycle '' '</div>' %}
+            {% endfor %}
+
+		    <br/>
+            <input class="btn btn-success" type="submit" value="Submit" style="margin-left: 250px"/>
 		</form>
 	</div>
 {% endblock %}

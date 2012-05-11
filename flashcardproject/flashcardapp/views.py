@@ -1,5 +1,5 @@
 # Create your views here.
-from flashcardapp.forms import FlashCardForm
+from flashcardapp.forms import FlashCardForm, PromptForm
 from django.db.models import Q
 from flashcardapp.models import FlashCard, Question
 from django.core.exceptions import ObjectDoesNotExist
@@ -52,7 +52,8 @@ def index(request):
 def create(request):
     if request.method == "POST":
         form = FlashCardForm(request.POST)
-        if form.is_valid():
+        promptForm = PromptForm(request.POST)
+        if form.is_valid() and promptForm.is_valid():
             new_flashcard = form.save()
             new_flashcard.user = request.user
             new_flashcard.save()
@@ -67,8 +68,10 @@ def create(request):
         return HttpResponseRedirect('/flashcard/create/success')
     else:
         form = FlashCardForm()
+        promptForm = PromptForm()
     return render_to_response('flashcard/create.html', {
             'form': form,
+            'promptForm': promptForm,
             'user':request.user,
     },context_instance=RequestContext(request))
 
@@ -102,7 +105,8 @@ def editsuccess(request):
 def edit(request, flashcard_id):
     if request.method == "POST":
         form = FlashCardForm(request.POST)
-        if form.is_valid():
+        promptForm = PromptForm(request.POST)
+        if form.is_valid() and promptForm.is_valid():
             new_flashcard = form.save()
             card = get_object_or_404(FlashCard, pk = flashcard_id)
             quests = Question.objects.filter(flashcardID__exact = card)
@@ -132,14 +136,17 @@ def edit(request, flashcard_id):
 
         quests = Question.objects.filter(flashcardID__exact = fc)
         i = 0
+        pList = dict([])
         for q in quests.all():
             i += 1
-            list['Prompt_%s' % i] = q.prompt
-            list['Answer_%s' % i] = q.answer
+            pList['Prompt_%s' % i] = q.prompt
+            pList['Answer_%s' % i] = q.answer
 
         form = FlashCardForm(list)
+        promptForm = PromptForm(pList)
     return render_to_response('flashcard/create.html', {
         'form': form,
+        'promptForm': promptForm,
         'user':request.user,
         },context_instance=RequestContext(request))
 

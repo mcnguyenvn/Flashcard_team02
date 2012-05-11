@@ -3,6 +3,10 @@
 {% load static %}
 {% get_static_prefix as STATIC_PREFIX %}
 
+{% block header %}
+    <title>{{ fc.title }}</title>
+{% endblock %}
+
 {% block botsidebar %}
     <div class="sidebar-nav">
         <ul class="nav nav-list well">

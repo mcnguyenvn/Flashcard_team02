@@ -1,5 +1,9 @@
 {% extends "flashcard/base.html" %}
 
+{% block header %}
+    <title>Flashcard</title>
+{% endblock %}
+
 {% block content %}
 <div class="span9 offset3">
     <div class="row-fluid">
@@ -8,7 +12,7 @@
         {% for flashcard in objects %}
             <h3>
             <div class="span1">
-                <span class="label label-important"><i class="icon-heart icon-white"></i></span>
+                <span class="label label-success"><i class="icon-heart icon-white"></i></span>
             </div>
             </h3>
             <div class="span11">

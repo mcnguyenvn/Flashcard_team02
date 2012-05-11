@@ -51,21 +51,6 @@ class FlashCardForm(forms.ModelForm):
         model = FlashCard
         exclude = ('user',)
 
-    def __init__(self, *args, **kwargs):
-        super(FlashCardForm, self).__init__(*args, **kwargs)
-        for i in xrange(settings.QuestNumber):
-            if i < 9:
-                self.fields['Prompt_%d' % (i+1)] = forms.CharField(label='Prompt 0%d' % (i+1), required=False)
-                # self.fields['Prompt_%d' % (i+1)].widget.attrs = {'class': 'quest'}
-                self.fields['Answer_%d' % (i+1)] = forms.CharField(label='Answer 0%d' % (i+1), required=False)
-                # self.fields['Answer_%d' % (i+1)].widget.attrs = {'class': 'ans'}
-            else:
-                self.fields['Prompt_%d' % (i+1)] = forms.CharField(required=False)
-                # self.fields['Prompt_%d' % (i+1)].widget.attrs = {'class': 'quest'}
-                self.fields['Answer_%d' % (i+1)] = forms.CharField(required=False)
-                # self.fields['Answer_%d' % (i+1)].widget.attrs = {'class': 'ans'}
-
-
     def save(self):
         new_flashcard = FlashCard()
         new_flashcard.title = self.cleaned_data['title']
@@ -73,4 +58,22 @@ class FlashCardForm(forms.ModelForm):
         new_flashcard.grade = self.cleaned_data['grade']
         new_flashcard.subject = self.cleaned_data['subject']
         return new_flashcard
+
+class PromptForm(forms.Form):
+    def __init__(self, *args, **kwargs):
+        super(PromptForm, self).__init__(*args, **kwargs)
+        for i in xrange(settings.QuestNumber):
+            if i < 9:
+                self.fields['Prompt_%d' % (i+1)] = forms.CharField(label='Prompt 0%d' % (i+1), required=False)
+                #self.fields['Prompt_%d' % (i+1)].widget.attrs = {'name': 'q%s' % i}
+                self.fields['Answer_%d' % (i+1)] = forms.CharField(label='Answer 0%d' % (i+1), required=False)
+                #self.fields['Answer_%d' % (i+1)].widget.attrs = {'name': 'a%s' % i}
+            else:
+                self.fields['Prompt_%d' % (i+1)] = forms.CharField(required=False)
+                #self.fields['Prompt_%d' % (i+1)].widget.attrs = {'name': 'q%s' % i}
+                self.fields['Answer_%d' % (i+1)] = forms.CharField(required=False)
+                #self.fields['Answer_%d' % (i+1)].widget.attrs = {'name': 'a%s' % i}
+
+
+
     

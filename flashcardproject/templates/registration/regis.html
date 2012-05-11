@@ -78,6 +78,30 @@
                     <strong>Warning!</strong> This username has been taken.
                 </div>
             {% endif %}
+            {% if notif == 3 %}
+                <div class="alert alert-error">
+                    <a class="close" data-dismiss="alert">x</a>
+                    <strong>Warning!</strong> This email has been registed.
+                </div>
+            {% endif %}
+            {% if notif == 4 %}
+                <div class="alert alert-error">
+                    <a class="close" data-dismiss="alert">x</a>
+                    <strong>Warning!</strong> Username must contain at least 5 letter.
+                </div>
+            {% endif %}
+            {% if notif == 5 %}
+                <div class="alert alert-error">
+                    <a class="close" data-dismiss="alert">x</a>
+                    <strong>Warning!</strong> Password must contain at least 6 letter.
+                </div>
+            {% endif %}
+            {% if notif == 6 %}
+                <div class="alert alert-error">
+                    <a class="close" data-dismiss="alert">x</a>
+                    <strong>Warning!</strong> Email field is not a type of email.
+                </div>
+            {% endif %}
             <form id="signupform" method="post" action=".">
                 <table>
                     <tr>

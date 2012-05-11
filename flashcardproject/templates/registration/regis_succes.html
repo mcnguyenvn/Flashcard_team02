@@ -1,8 +1,14 @@
 {% extends "registration/base.html" %}
 
 {% block content %}
+    <script type="text/javascript">
+        function redirect(){
+            window.location = "/";
+        }
+        setTimeout("redirect()", 5000);
+    </script>
     <div align = "center">
-			   	<p> <font-size ="5"> Congratulations! You have successfully registered . Back to <a href=".."> home </a>
-                    to login and enter flashcard site </font> </p>
-	   </div>
+	    <h4>Congratulations! You have successfully registered.<br/>
+            You will be back to <a href="/"> Home </a> to login and enter flashcard site in 5 seconds</h4>
+	</div>
 {% endblock %}
