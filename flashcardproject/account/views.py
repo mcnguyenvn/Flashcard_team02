@@ -5,13 +5,23 @@ from django.contrib.auth.models import check_password, User
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template.context import RequestContext
+from pure_pagination.paginator import PageNotAnInteger, Paginator
 from flashcardapp.models import FlashCard
+from flashcardapp.views import isNeedPaging
 
 @login_required
 def user_flashcard(request, username):
     viewUser = get_object_or_404(User, username__exact = username)
-    flashcards = FlashCard.objects.filter(user__exact = viewUser)
+    flashcard_list = FlashCard.objects.filter(user__exact = viewUser).order_by('-vote')
+    try:
+        page = request.GET.get('page', 1)
+    except PageNotAnInteger:
+        page = 1
+    p = Paginator(flashcard_list, 10, request=request)
+    flashcards = p.page(page)
+    paging = isNeedPaging(flashcard_list, 10)
     return render_to_response('account/myflashcard.html', {'flashcards': flashcards,
+                                                           'paging': paging,
                                                            'viewUser': viewUser,
                                                            'user':request.user})
 

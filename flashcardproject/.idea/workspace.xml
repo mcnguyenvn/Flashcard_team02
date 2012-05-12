@@ -26,19 +26,39 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="settings.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/settings.py">
+      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/flashcardapp/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="179" column="29" selection-start="6262" selection-end="6262" vertical-scroll-proportion="1.1970803">
+            <state line="228" column="37" selection-start="8119" selection-end="8119" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#26#91#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="search.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/flashcard/search.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="42" column="43" selection-start="1888" selection-end="1888" vertical-scroll-proportion="1.7255279">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="search.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/flashcard/search.html">
+      <file leaf-file-name="viewtitle.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/flashcard/viewtitle.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="30" selection-start="1906" selection-end="1906" vertical-scroll-proportion="-14.296296">
+            <state line="32" column="31" selection-start="1204" selection-end="1204" vertical-scroll-proportion="-10.777778">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="myflashcard.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/account/myflashcard.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="21" column="39" selection-start="878" selection-end="878" vertical-scroll-proportion="-9.777778">
               <folding />
             </state>
           </provider>
@@ -59,22 +79,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/templates/account/viewprofile.html" />
-        <option value="$PROJECT_DIR$/templates/flashcard/base_alter.html" />
         <option value="$PROJECT_DIR$/templates/flashcard/create.html" />
         <option value="$PROJECT_DIR$/flashcardapp/urls.py" />
         <option value="$PROJECT_DIR$/templates/flashcard/origin.html" />
         <option value="$PROJECT_DIR$/flashcardapp/forms.py" />
-        <option value="$PROJECT_DIR$/templates/account/myflashcard.html" />
         <option value="$PROJECT_DIR$/templates/flashcard/main.html" />
         <option value="$PROJECT_DIR$/templates/flashcard/base.html" />
         <option value="$PROJECT_DIR$/templates/flashcard/viewquest.html" />
         <option value="$PROJECT_DIR$/templates/like.html" />
         <option value="$PROJECT_DIR$/templates/about_content.html" />
-        <option value="$PROJECT_DIR$/flashcardapp/views.py" />
-        <option value="$PROJECT_DIR$/templates/flashcard/viewtitle.html" />
-        <option value="$PROJECT_DIR$/templates/flashcard/search.html" />
         <option value="$PROJECT_DIR$/settings.py" />
+        <option value="$PROJECT_DIR$/flashcardapp/views.py" />
+        <option value="$PROJECT_DIR$/account/views.py" />
+        <option value="$PROJECT_DIR$/templates/paging.html" />
+        <option value="$PROJECT_DIR$/templates/flashcard/viewtitle.html" />
+        <option value="$PROJECT_DIR$/templates/account/myflashcard.html" />
+        <option value="$PROJECT_DIR$/templates/flashcard/search.html" />
       </list>
     </option>
   </component>
@@ -713,27 +733,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/account/myflashcard.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="86" selection-start="334" selection-end="428" vertical-scroll-proportion="0.21348314">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/templatetags/gravatar.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/account/viewprofile.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/account/userprofile.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.60674155">
@@ -776,32 +775,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/flashcardapp/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="210" column="9" selection-start="7502" selection-end="7502" vertical-scroll-proportion="0.44343066">
-          <folding>
-            <element signature="e#26#82#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/flashcard/viewquest.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="37" column="16" selection-start="1155" selection-end="1155" vertical-scroll-proportion="0.33973128">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/flashcard/search.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="30" selection-start="1906" selection-end="1906" vertical-scroll-proportion="-14.296296">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/flashcard/viewtitle.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="19" selection-start="120" selection-end="120" vertical-scroll-proportion="-0.31460676">
           <folding />
         </state>
       </provider>
@@ -822,7 +798,51 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="179" column="29" selection-start="6262" selection-end="6262" vertical-scroll-proportion="1.1970803">
+        <state line="178" column="0" selection-start="6231" selection-end="6231" vertical-scroll-proportion="0.8029197">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/account/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="16" selection-start="782" selection-end="782" vertical-scroll-proportion="0.44160584">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flashcardapp/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="228" column="37" selection-start="8119" selection-end="8119" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#26#91#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/paging.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="11" selection-start="145" selection-end="145" vertical-scroll-proportion="0.30337077">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/flashcard/viewtitle.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="31" selection-start="1204" selection-end="1204" vertical-scroll-proportion="-10.777778">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/account/myflashcard.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="39" selection-start="878" selection-end="878" vertical-scroll-proportion="-9.777778">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/flashcard/search.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="43" selection-start="1888" selection-end="1888" vertical-scroll-proportion="1.7255279">
           <folding />
         </state>
       </provider>

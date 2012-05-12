@@ -4,25 +4,22 @@
     <div class="span9 offset3">
         <div class="row-fluid">
             <div class="span7 offset5">
-                {% if flashcards %}
-                    {% for flashcard in flashcards %}
+                {% for flashcard in flashcards.object_list %}
+                    <h3>
+                        <div class="span1">
+                            <span class="label label-success">{{ flashcard.vote }}</span>
+                        </div>
+                    </h3>
+                    <div class="span11">
                         <h3>
-                            <div class="span1">
-                                <span class="label label-success">{{ flashcard.vote }}</span>
-                            </div>
+                        <a href="/flashcard/{{ flashcard.id }}/">
+                            {{ flashcard.title }}
+                        </a>
                         </h3>
-                         <div class="span11">
-                            <h3>
-                            <a href="/flashcard/{{ flashcard.id }}/">
-                                {{ flashcard.title }}
-                            </a>
-                            </h3>
-                            <span style="font-style: italic;">{{ flashcard.description }}</span>
-                         </div>
-                    {% endfor %}
-                {% else %}
-                    <p> You have no Flashcard. </p>
-                {% endif %}
+                        <span style="font-style: italic;">{{ flashcard.description }}</span>
+                    </div>
+                {% endfor %}
+                {% include "paging.html" %}
             </div>
         </div>
     </div>

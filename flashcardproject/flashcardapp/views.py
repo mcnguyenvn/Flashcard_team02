@@ -1,4 +1,5 @@
 # Create your views here.
+from pure_pagination.paginator import PageNotAnInteger, Paginator
 from flashcardapp.forms import FlashCardForm, PromptForm
 from django.db.models import Q
 from flashcardapp.models import FlashCard, Question, wrapUser
@@ -210,18 +211,41 @@ def search(request):
         results = FlashCard.objects.filter(qset).distinct()
     else:
         results = []
+    try:
+        page = request.GET.get('page', 1)
+    except PageNotAnInteger:
+        page = 1
+
+    # Provide Paginator with the request object for complete querystring generation
+    p = Paginator(results, 10, request=request)
+    flashcards = p.page(page)
+    paging = isNeedPaging(results, 10)
     return render_to_response("flashcard/search.html", {
-        "results": results,
-        "query": query ,
+        'results': results,
+        'query': query ,
 		'user':request.user,
+        'flashcards': flashcards,
+        'paging': paging,
     }, context_instance=RequestContext(request))
-	
+
+def isNeedPaging(list, number):
+    if len(list) > number:
+        return True
+    return False
 
 def view_title(request,sub):
-    objects = FlashCard.objects.filter(subject=sub)
+    objects = FlashCard.objects.filter(subject=sub).order_by('-vote')
+    try:
+        page = request.GET.get('page', 1)
+    except PageNotAnInteger:
+        page = 1
+    p = Paginator(objects, 10, request=request)
+    flashcards = p.page(page)
+    paging = isNeedPaging(objects, 10)
     return render_to_response('flashcard/viewtitle.html',{
-		'objects':objects,
+		'flashcards':flashcards,
 		'user':request.user,
+        'paging': paging,
     },context_instance=RequestContext(request))
 
 def view_flashcard(request, flashcard_id):

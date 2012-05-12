@@ -8,8 +8,7 @@
 <div class="span9 offset3">
     <div class="row-fluid">
     <div class="span7 offset5">
-	{% if objects %}
-        {% for flashcard in objects %}
+        {% for flashcard in flashcards.object_list %}
             <h3>
             <div class="span1">
                 <span class="label label-success">{{ flashcard.vote }}</span>
@@ -30,9 +29,8 @@
                 </a>
                 <span style="font-size: smaller;">{{ flashcard.description }}</span>
             </div>
-
         {% endfor %}
-  	{% endif %}
+        {% include "paging.html" %}
     </div>
 </div>
 </div>

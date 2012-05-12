@@ -139,6 +139,7 @@ INSTALLED_APPS = (
     'flashcardproject.flashcardapp',
 	'flashcardproject.django_gravatar',
     'flashcardproject.account',
+    'pure_pagination',
 	# 'flashcardproject.haystack',
 	# Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
@@ -175,8 +176,3 @@ EMAIL_HOST_USER = 'flashcardwebapp@gmail.com'
 EMAIL_HOST_PASSWORD = '1a2b3c4d.'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-
-PAGINATION_SETTINGS = {
-    'PAGE_RANGE_DISPLAYED': 5,
-    'MARGIN_PAGES_DISPLAYED': 2,
-    }
