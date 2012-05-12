@@ -20,14 +20,16 @@
                     {{ flashcard.title }}
                 </a>
                 </h3>
-                <a href="/user/{{ flashcard.user }}" style="font-style: italic;">
-                    {% if flashcard.user.first_name != '' or flashcard.user.last_name != '' %}
-                        {{ flashcard.user.first_name }} {{ flashcard.user.last_name }}
-                    {% else %}
-                        {{ flashcard.user.username }}
-                    {% endif %}
-                </a>
-                <span style="font-size: smaller;">{{ flashcard.description }}</span>
+                <span style="font-style: italic;"><strong>Owner</strong>
+                        <a href="/user/{{ flashcard.user }}">
+                            {% if flashcard.user.first_name != '' or flashcard.user.last_name != '' %}
+                                {{ flashcard.user.first_name }} {{ flashcard.user.last_name }}
+                            {% else %}
+                                {{ flashcard.user.username }}
+                            {% endif %}
+                        </a></span><br/>
+                <span style="font-style: italic;"><strong>Description</strong> {{ flashcard.description }}</span>
+                <br/><br/>
             </div>
         {% endfor %}
         {% include "paging.html" %}

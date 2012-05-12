@@ -217,9 +217,9 @@ def search(request):
         page = 1
 
     # Provide Paginator with the request object for complete querystring generation
-    p = Paginator(results, 10, request=request)
+    p = Paginator(results, 5, request=request)
     flashcards = p.page(page)
-    paging = isNeedPaging(results, 10)
+    paging = isNeedPaging(results, 5)
     return render_to_response("flashcard/search.html", {
         'results': results,
         'query': query ,
@@ -239,9 +239,9 @@ def view_title(request,sub):
         page = request.GET.get('page', 1)
     except PageNotAnInteger:
         page = 1
-    p = Paginator(objects, 10, request=request)
+    p = Paginator(objects, 5, request=request)
     flashcards = p.page(page)
-    paging = isNeedPaging(objects, 10)
+    paging = isNeedPaging(objects, 5)
     return render_to_response('flashcard/viewtitle.html',{
 		'flashcards':flashcards,
 		'user':request.user,
