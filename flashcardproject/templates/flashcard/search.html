@@ -10,41 +10,39 @@
 {% endblock %}
 
 {% block content %}
-	<div class="span9">
+    <div class="span9">
         <div class="row-fluid">
-        <div class="span12" style="padding-left: 20px">
-            <form action="/flashcard/search/" method="GET">
-                <input type="text" name="q" value="{{ query|escape }}" class="search-query span4" placeholder="Search">
-            </form>
-        </div>
-        <div class="span12">
-		{% if results %}
-			<ul>
-				{% for q in results %}
-                    <h3>
-                        <div class="span1">
-                            <span class="label label-success"><i class="icon-heart icon-white"></i></span>
-                        </div>
-                    </h3>
-                    <div class="span11">
+            <div class="span12" style="padding-left: 20px">
+                <form action="/flashcard/search/" method="GET">
+                    <input type="text" name="q" value="{{ query|escape }}" class="search-query span4" placeholder="Search">
+                </form>
+            </div>
+            <div class="span7 offset5">
+                {% if results %}
+                    {% for flashcard in results %}
                         <h3>
-                            <a href="/flashcard/{{ q.id }}/" style="color: green;">
-                                {{ q.title }}
-                            </a>
+                            <div class="span1">
+                                <span class="label label-success">{{ flashcard.vote }}</span>
+                            </div>
                         </h3>
-                        <a href="/user/{{ q.user }}" style="font-style: italic;">
-                            {% include "name_display_current_user.html" %}
-                        </a>
-                        <span style="font-size: smaller;">{{ q.description }}</span>
-                    </div>
-				{% endfor %}
-			</ul>
-		{% else %}
-			<p>No flashcard found</p>
-		{% endif %}
+                        <div class="span11">
+                            <h3>
+                                <a href="/flashcard/{{ flashcard.id }}/" style="color: green;">
+                                    {{ flashcard.title }}
+                                </a>
+                            </h3>
+                            <a href="/user/{{ flashcard.user }}" style="font-style: italic;">
+                                {% if flashcard.user.first_name != '' or flashcard.user.last_name != '' %}
+                                    {{ flashcard.user.first_name }} {{ flashcard.user.last_name }}
+                                {% else %}
+                                    {{ flashcard.user.username }}
+                                {% endif %}
+                            </a>
+                            <span style="font-size: smaller;">{{ flashcard.description }}</span>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
         </div>
-        </div>
-	</div>
+    </div>
 {% endblock %}
-      
-

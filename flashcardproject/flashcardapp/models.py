@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
+class wrapUser(models.Model):
+    user = models.ForeignKey(User)
 
 class FlashCard(models.Model):
     title = models.CharField(max_length = 255, null = True)
@@ -10,7 +12,8 @@ class FlashCard(models.Model):
     grade = models.CharField(max_length = 255 , null = True)
     subject = models.CharField(max_length = 255 , null = True)
     user = models.ForeignKey(User, unique=False)
-#    liker = models.ManyToManyField(User, unique=False)
+    vote  =  models.IntegerField()
+    uservote = models.ManyToManyField(wrapUser,blank=True,null=True)
 
     def copy(self, flashcard):
         self.title = flashcard.title
@@ -24,7 +27,6 @@ class FlashCard(models.Model):
 class Question(models.Model):
     prompt = models.CharField(max_length = 500)
     answer = models.CharField(max_length = 500)
-    vote  =  models.IntegerField()
     flashcardID = models.ForeignKey(FlashCard)
 
     def __unicode__(self):

@@ -1,7 +1,15 @@
 {% extends "flashcard/base.html" %}
 
 {% block header %}
-    <title>Create Flashcard</title>
+    {% if value == 1 %}
+        <title>Create Flashcard</title>
+    {% endif %}
+    {% if value == 2 %}
+        <title>Edit Flashcard</title>
+    {% endif %}
+    {% if value == 3 %}
+        <title>Copy Flashcard</title>
+    {% endif %}
 {% endblock %}
 
 {% block content %}
@@ -24,6 +32,7 @@
 
 		    <br/>
             <input class="btn btn-success" type="submit" value="Submit" style="margin-left: 250px"/>
+            <input class="btn btn-danger" type="reset" value="Cancel" onclick="window.history.back()">
 		</form>
 	</div>
 {% endblock %}

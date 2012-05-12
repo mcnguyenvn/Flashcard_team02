@@ -1,0 +1,13 @@
+{% if user.is_authenticated and not userlike %}
+	<a class="like-click label label-success" style="font-weight:bold"
+       onmouseover="this.innerHTML='Like this'"
+       onmouseout="this.innerHTML='{{fc.vote}} Like{{fc.vote|pluralize}}'">
+       {{fc.vote}} Like{{fc.vote|pluralize}}
+    </a>
+{%else%}
+    {% if user.is_authenticated %}
+	    <span id="liked" title="You have already liked this" class="label label-success" style="font-weight:bold" >{{fc.vote}} Like{{fc.vote|pluralize}}</span>
+    {% else %}
+        <span class="label label-success" style="font-weight:bold" >{{fc.vote}} Like{{fc.vote|pluralize}}</span>
+    {% endif %}
+{%endif%}

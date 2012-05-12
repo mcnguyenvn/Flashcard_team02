@@ -20,6 +20,8 @@ GRADE_CHOICES = (
     ('tenth', '10th Grade'),
     ('eleventh', '11th Grade'),
     ('twelfth', '12th Grade'),
+    ('college', 'College'),
+    ('other', 'Other'),
 )
 
 SUBJECT_CHOICES = (
@@ -49,7 +51,7 @@ class FlashCardForm(forms.ModelForm):
     
     class Meta:
         model = FlashCard
-        exclude = ('user',)
+        exclude = ('user', 'vote', 'uservote')
 
     def save(self):
         new_flashcard = FlashCard()

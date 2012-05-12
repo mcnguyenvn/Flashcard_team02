@@ -12,10 +12,12 @@
                 </div>
                 <div class="span10">
                     {% if viewUser.first_name != '' or viewUser.last_name != '' %}
-                        <h3><a href="/user/{{ viewUser.username }}">{{ viewUser.first_name }} {{ viewUser.last_name }}</a></h3>
+                        <h3><a href="/user/{{ viewUser.username }}">{{ viewUser.get_full_name }}</a></h3>
                     {% else %}
                         <h3><a href="/user/{{ viewUser.username }}">{{ viewUser.username }}</a></h3>
                     {% endif %}
+                    {% block like %}
+                    {% endblock %}
                 </div>
             </div>
         </div>

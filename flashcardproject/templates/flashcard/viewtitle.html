@@ -12,7 +12,7 @@
         {% for flashcard in objects %}
             <h3>
             <div class="span1">
-                <span class="label label-success"><i class="icon-heart icon-white"></i></span>
+                <span class="label label-success">{{ flashcard.vote }}</span>
             </div>
             </h3>
             <div class="span11">
@@ -32,8 +32,6 @@
             </div>
 
         {% endfor %}
-  	{% else %}
-  		<p> There is no FlashCard </p>
   	{% endif %}
     </div>
 </div>

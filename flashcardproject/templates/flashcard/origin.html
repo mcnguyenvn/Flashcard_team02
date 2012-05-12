@@ -99,4 +99,23 @@
 <script src="{{ STATIC_PREFIX }}javascript/jquery.js"></script>
 <script src="{{ STATIC_PREFIX }}javascript/edit.js"></script>
 <script src="{{ STATIC_PREFIX }}javascript/bootstrap.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('a[rel=tooltip]').tooltip({
+            placement: "bottom"
+        });
+        $('#liked').tooltip({
+            placement: "bottom"
+        });
+        $(".like-click").click(function(){
+            $.ajax({
+                url: "/flashcard/{{ flashcard_id }}/like/?like",
+                success: function(html){
+                    $('.like-results').load("/flashcard/{{ flashcard_id }}/like/?like");
+                    $("span").removeClass("btn",'10000');
+                }
+            });
+        });
+    });
+</script>
 </body></html>

@@ -1,7 +1,7 @@
 # Create your views here.
 from flashcardapp.forms import FlashCardForm, PromptForm
 from django.db.models import Q
-from flashcardapp.models import FlashCard, Question
+from flashcardapp.models import FlashCard, Question, wrapUser
 from django.core.exceptions import ObjectDoesNotExist
 from django.http import HttpResponseRedirect, Http404
 from django.shortcuts import render_to_response, get_object_or_404
@@ -11,18 +11,18 @@ from django.contrib.auth.decorators import login_required
 import settings
 
 def index(request):
-    Art = FlashCard.objects.filter(Q(subject='art')).order_by('-id')[:5]
-    Bae = FlashCard.objects.filter(Q(subject='bae')).order_by('-id')[:5]
-    Cos = FlashCard.objects.filter(Q(subject='cos')).order_by('-id')[:5]
-    Geo = FlashCard.objects.filter(Q(subject='geo')).order_by('-id')[:5]
-    Gov = FlashCard.objects.filter(Q(subject='gov')).order_by('-id')[:5]
-    His = FlashCard.objects.filter(Q(subject='his')).order_by('-id')[:5]
-    Mat = FlashCard.objects.filter(Q(subject='mat')).order_by('-id')[:5]
-    Mus = FlashCard.objects.filter(Q(subject='mus')).order_by('-id')[:5]
-    Fol = FlashCard.objects.filter(Q(subject='fol')).order_by('-id')[:5]
-    Sci = FlashCard.objects.filter(Q(subject='sci')).order_by('-id')[:5]
-    Peh = FlashCard.objects.filter(Q(subject='peh')).order_by('-id')[:5]
-    Rel = FlashCard.objects.filter(Q(subject='rel')).order_by('-id')[:5]
+    Art = FlashCard.objects.filter(Q(subject='art')).order_by('-vote')[:5]
+    Bae = FlashCard.objects.filter(Q(subject='bae')).order_by('-vote')[:5]
+    Cos = FlashCard.objects.filter(Q(subject='cos')).order_by('-vote')[:5]
+    Geo = FlashCard.objects.filter(Q(subject='geo')).order_by('-vote')[:5]
+    Gov = FlashCard.objects.filter(Q(subject='gov')).order_by('-vote')[:5]
+    His = FlashCard.objects.filter(Q(subject='his')).order_by('-vote')[:5]
+    Mat = FlashCard.objects.filter(Q(subject='mat')).order_by('-vote')[:5]
+    Mus = FlashCard.objects.filter(Q(subject='mus')).order_by('-vote')[:5]
+    Fol = FlashCard.objects.filter(Q(subject='fol')).order_by('-vote')[:5]
+    Sci = FlashCard.objects.filter(Q(subject='sci')).order_by('-vote')[:5]
+    Peh = FlashCard.objects.filter(Q(subject='peh')).order_by('-vote')[:5]
+    Rel = FlashCard.objects.filter(Q(subject='rel')).order_by('-vote')[:5]
 
     qfc = FlashCard.objects.all()
     a = []
@@ -56,13 +56,14 @@ def create(request):
         if form.is_valid() and promptForm.is_valid():
             new_flashcard = form.save()
             new_flashcard.user = request.user
+            new_flashcard.vote = 0
             new_flashcard.save()
 
         for i in xrange(settings.QuestNumber):
             if request.POST['Prompt_%d' % (i+1)] != '':
                 prompt = request.POST['Prompt_%d' % (i+1)]
                 answer = request.POST['Answer_%d' % (i+1)]
-                quest = Question.objects.create(prompt=prompt,answer=answer,vote=0,flashcardID = new_flashcard)
+                quest = Question.objects.create(prompt=prompt,answer=answer,flashcardID = new_flashcard)
                 quest.save()
 
         return HttpResponseRedirect('/flashcard/create/success')
@@ -73,6 +74,7 @@ def create(request):
             'form': form,
             'promptForm': promptForm,
             'user':request.user,
+            'value': 1,
     },context_instance=RequestContext(request))
 
 @login_required
@@ -122,7 +124,7 @@ def edit(request, flashcard_id):
                 if request.POST['Prompt_%d' % (i+1)] != '':
                     prompt = request.POST['Prompt_%d' % (i+1)]
                     answer = request.POST['Answer_%d' % (i+1)]
-                    quest = Question.objects.create(prompt=prompt,answer=answer,vote=0,flashcardID = card)
+                    quest = Question.objects.create(prompt=prompt,answer=answer,flashcardID = card)
                     quest.save()
 
             return HttpResponseRedirect('/flashcard/edit/success')
@@ -148,7 +150,56 @@ def edit(request, flashcard_id):
         'form': form,
         'promptForm': promptForm,
         'user':request.user,
+        'value': 2,
         },context_instance=RequestContext(request))
+
+@login_required
+def copy(request, flashcard_id):
+    if request.method == "POST":
+        form = FlashCardForm(request.POST)
+        promptForm = PromptForm(request.POST)
+        if form.is_valid() and promptForm.is_valid():
+            new_flashcard = form.save()
+            new_flashcard.user = request.user
+            new_flashcard.vote = 0
+            new_flashcard.save()
+
+            # add questions
+            for i in xrange(settings.QuestNumber):
+                if request.POST['Prompt_%d' % (i+1)] != '':
+                    prompt = request.POST['Prompt_%d' % (i+1)]
+                    answer = request.POST['Answer_%d' % (i+1)]
+                    quest = Question.objects.create(prompt=prompt,answer=answer,flashcardID = new_flashcard)
+                    quest.save()
+
+            return HttpResponseRedirect('/flashcard/copy/success')
+    else:
+        fc = get_object_or_404(FlashCard, pk = flashcard_id)
+        list = dict([])
+        list['title'] = fc.title
+        list['description']=fc.description
+        list['grade']=fc.grade
+        list['subject']=fc.subject
+
+        quests = Question.objects.filter(flashcardID__exact = fc)
+        i = 0
+        pList = dict([])
+        for q in quests.all():
+            i += 1
+            pList['Prompt_%s' % i] = q.prompt
+            pList['Answer_%s' % i] = q.answer
+
+        form = FlashCardForm(list)
+        promptForm = PromptForm(pList)
+    return render_to_response('flashcard/create.html', {
+        'form': form,
+        'promptForm': promptForm,
+        'user':request.user,
+        'value': 3,
+        },context_instance=RequestContext(request))
+
+def copysuccess(request):
+    return render_to_response('flashcard/copysuccess.html',context_instance=RequestContext(request))
 
 def search(request):
     query = request.GET.get('q', '')
@@ -174,10 +225,13 @@ def view_title(request,sub):
     },context_instance=RequestContext(request))
 
 def view_flashcard(request, flashcard_id):
-
     fc = get_object_or_404(FlashCard, pk = flashcard_id)
+    if request.user.is_authenticated():
+        userlike = fc.uservote.filter(user = request.user)
+    else:
+        userlike = None
     quests = Question.objects.filter(flashcardID__exact = fc)
-    moreFc = FlashCard.objects.filter(Q(user=fc.user)).order_by('-id')[:5]
+    moreFc = FlashCard.objects.filter(Q(user=fc.user)).order_by('-vote')[:5]
     p = ''
     a = ''
     for q in quests:
@@ -199,6 +253,22 @@ def view_flashcard(request, flashcard_id):
         'owner': owner,
         'moreFc': moreFc,
         'viewUser': fc.user,
+        'userlike': userlike,
         })
 
     return render_to_response('flashcard/viewquest.html',var)
+
+def like(request, flashcard_id):
+    fc = get_object_or_404(FlashCard,pk = flashcard_id)
+    userlike = fc.uservote.filter(user = request.user)
+    if not userlike:
+        fc.vote += 1
+        newWrapUser = wrapUser.objects.create(user=request.user)
+        newWrapUser.save()
+        fc.uservote.add(newWrapUser)
+        fc.save()
+    variables = RequestContext(request,{
+        'fc': fc,
+        'userlike': userlike,
+        })
+    return render_to_response('like.html', variables)
