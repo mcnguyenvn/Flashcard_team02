@@ -1,4 +1,5 @@
 ﻿# Create your views here.
+from django.contrib.auth.decorators import login_required
 
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
@@ -33,6 +34,7 @@ def login_page(request):
     variables = RequestContext(request, {'error': error})
     return render_to_response('mainpage/login.html', variables)
 
+@login_required(login_url='/login/')
 def logout_page(request):
     logout(request)
     return HttpResponseRedirect('/')

@@ -49,7 +49,7 @@ def index(request):
 
     return render_to_response('flashcard/main.html',variables,context_instance=RequestContext(request))
 
-@login_required
+@login_required(login_url='/login/')
 def create(request):
     if request.method == "POST":
         form = FlashCardForm(request.POST)
@@ -67,7 +67,7 @@ def create(request):
                 quest = Question.objects.create(prompt=prompt,answer=answer,flashcardID = new_flashcard)
                 quest.save()
 
-        return HttpResponseRedirect('/flashcard/create/success')
+        return HttpResponseRedirect('/flashcard/' + str(new_flashcard.id))
     else:
         form = FlashCardForm()
         promptForm = PromptForm()
@@ -78,15 +78,11 @@ def create(request):
             'value': 1,
     },context_instance=RequestContext(request))
 
-@login_required
-def creatingsuccess(request):
-    return render_to_response('flashcard/creatingsuccess.html' , {
-		'user':request.user,
-    },context_instance=RequestContext(request))
-
-@login_required
+@login_required(login_url='/login/')
 def delete(request, flashcard_id):
     card = get_object_or_404(FlashCard, pk = flashcard_id)
+    if card.user != request.user:
+        return HttpResponseRedirect('/flashcard/')
     quests = Question.objects.filter(flashcardID__exact = card)
 
     for q in quests:
@@ -95,12 +91,6 @@ def delete(request, flashcard_id):
     card.delete()
 
     return render_to_response('flashcard/delsuccess.html' , {
-		'user':request.user,
-    },context_instance=RequestContext(request))
-
-@login_required
-def editsuccess(request):
-    return render_to_response('flashcard/editsuccess.html' , {
 		'user':request.user,
     },context_instance=RequestContext(request))
 
@@ -128,9 +118,11 @@ def edit(request, flashcard_id):
                     quest = Question.objects.create(prompt=prompt,answer=answer,flashcardID = card)
                     quest.save()
 
-            return HttpResponseRedirect('/flashcard/edit/success')
+            return HttpResponseRedirect('/flashcard/' + str(flashcard_id))
     else:
         fc = get_object_or_404(FlashCard, pk = flashcard_id)
+        if fc.user.username != request.user.username:
+            return HttpResponseRedirect('/flashcard/')
         list = dict([])
         list['title'] = fc.title
         list['description']=fc.description
@@ -173,7 +165,7 @@ def copy(request, flashcard_id):
                     quest = Question.objects.create(prompt=prompt,answer=answer,flashcardID = new_flashcard)
                     quest.save()
 
-            return HttpResponseRedirect('/flashcard/copy/success')
+            return HttpResponseRedirect('/flashcard/' + str(new_flashcard.id))
     else:
         fc = get_object_or_404(FlashCard, pk = flashcard_id)
         list = dict([])
@@ -199,16 +191,13 @@ def copy(request, flashcard_id):
         'value': 3,
         },context_instance=RequestContext(request))
 
-def copysuccess(request):
-    return render_to_response('flashcard/copysuccess.html',context_instance=RequestContext(request))
-
 def search(request):
     query = request.GET.get('q', '')
     if query:
         qset = (
             Q(title__icontains=query)
         )
-        results = FlashCard.objects.filter(qset).distinct()
+        results = FlashCard.objects.filter(qset).distinct().order_by('-vote')
     else:
         results = []
     try:
@@ -282,6 +271,7 @@ def view_flashcard(request, flashcard_id):
 
     return render_to_response('flashcard/viewquest.html',var)
 
+@login_required(login_url='/login/')
 def like(request, flashcard_id):
     fc = get_object_or_404(FlashCard,pk = flashcard_id)
     userlike = fc.uservote.filter(user = request.user)

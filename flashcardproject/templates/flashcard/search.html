@@ -1,5 +1,5 @@
 {% extends "flashcard/base.html" %}
-{% load  %}
+
 {% block header %}
     <title>Searching</title>
     <style type="text/css">
@@ -21,7 +21,7 @@
                 {% for flashcard in flashcards.object_list %}
                     <h3>
                         <div class="span1">
-                            <span class="label label-success">{{ flashcard.vote }}</span>
+                            <span class="label label-success">{{ flashcard.vote }} Like{{ flashcard.vote|pluralize }}</span>
                         </div>
                     </h3>
                     <div class="span11">

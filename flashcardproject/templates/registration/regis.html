@@ -10,7 +10,7 @@
                 rules: {
                     username: {
                         required: true,
-                        minlength: 5
+                        minlength: 5,
                     },
                     password: {
                         required: true,
@@ -100,6 +100,12 @@
                 <div class="alert alert-error">
                     <a class="close" data-dismiss="alert">x</a>
                     <strong>Warning!</strong> Email field is not a type of email.
+                </div>
+            {% endif %}
+            {% if notif == 10 %}
+                <div class="alert alert-error">
+                    <a class="close" data-dismiss="alert">x</a>
+                    <strong>Warning!</strong> Username can only contain alphanumeric characters and the underscore.
                 </div>
             {% endif %}
             <form id="signupform" method="post" action=".">

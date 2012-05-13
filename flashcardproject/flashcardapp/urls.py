@@ -5,12 +5,9 @@ admin.autodiscover()
 
 urlpatterns = patterns('flashcardapp.views',
     (r'^$', 'index'),
-    (r'^title/(?P<sub>\w+)/$', 'view_title'),
+    (r'title/(?P<sub>\w+)/$', 'view_title'),
     (r'^create/$', 'create'),
     (r'^search/$', 'search'),
-    (r'^create/success/$', 'creatingsuccess'),
-    (r'^edit/success/$', 'editsuccess'),
-    (r'^copy/success/$', 'copysuccess'),
     (r'^(?P<flashcard_id>\d+)/create_question/$', 'create_question'),
     (r'^(?P<flashcard_id>\d+)/like/$', 'like'),
     (r'^(?P<flashcard_id>\d+)/edit/$', 'edit'),

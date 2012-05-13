@@ -1,11 +1,12 @@
 ﻿# Create your views here.
+import re
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
 from django.core.validators import email_re
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template.context import RequestContext
-from Registration.forms import ForgotPasswordForm
+from Registration.forms import ForgotPasswordForm, RegistrationForm
 
 def is_valid_email(email):
     return True if email_re.match(email) else False
@@ -14,10 +15,15 @@ def register(request):
     if request.user.is_authenticated():
         return HttpResponseRedirect('/flashcard/')
     notif = 0
+    form = RegistrationForm()
     if request.POST:
         username = request.POST.get('username')
         password = request.POST.get('password')
         email    = request.POST.get('email')
+        if not re.search(r'^\w+$', username):
+            notif = 10
+            variables = RequestContext(request, {'notif': notif})
+            return render_to_response('registration/regis.html', variables)
         if len(username) < 5 or len(password) < 6 or not is_valid_email(email):
             if len(username) < 5:
                 notif = 4
@@ -50,7 +56,7 @@ def register(request):
             [email],
             fail_silently=True)
         return HttpResponseRedirect('../regis_success')
-    variables = RequestContext(request, {'notif': notif})
+    variables = RequestContext(request, {'notif': notif, 'form': form,})
     return render_to_response('registration/regis.html', variables)
 
 def regis_success(request):

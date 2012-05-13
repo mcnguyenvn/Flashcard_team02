@@ -9,10 +9,10 @@ from pure_pagination.paginator import PageNotAnInteger, Paginator
 from flashcardapp.models import FlashCard
 from flashcardapp.views import isNeedPaging
 
-@login_required
+@login_required(login_url='/login/')
 def user_flashcard(request, username):
-    viewUser = get_object_or_404(User, username__exact = username)
-    flashcard_list = FlashCard.objects.filter(user__exact = viewUser).order_by('-vote')
+    viewUser = get_object_or_404(User, username = username)
+    flashcard_list = FlashCard.objects.filter(user = viewUser).order_by('-vote')
     try:
         page = request.GET.get('page', 1)
     except PageNotAnInteger:
@@ -25,7 +25,7 @@ def user_flashcard(request, username):
                                                            'viewUser': viewUser,
                                                            'user':request.user})
 
-@login_required
+@login_required(login_url='/login/')
 def edit_profile(request, username):
     if request.method == 'POST':
         first_name = request.POST.get('first_name')
@@ -46,7 +46,7 @@ def edit_profile(request, username):
     else:
         return render_to_response('404.html')
 
-@login_required
+@login_required(login_url='/login/')
 def view_profile(request, username):
     viewUser=get_object_or_404(User, username__exact=username)
     isOwner=False
@@ -57,7 +57,7 @@ def view_profile(request, username):
     variables=RequestContext(request, {'viewUser': viewUser, 'isOwner': isOwner, 'numberFlashcard': numberFlashcard})
     return render_to_response('account/viewprofile.html', variables)
 
-@login_required
+@login_required(login_url='/login/')
 def change_password(request, username):
     viewUser=get_object_or_404(User, username__exact=username)
     if viewUser != request.user:
