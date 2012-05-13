@@ -1,9 +1,9 @@
 This is a project of Group 02 - K55CA - UET in Software Engineering
 Lecturer: 
-- Trương Anh Hoàng
+- Truong Anh Hoang
 Our team members:
-- Nguyễn Thạc Dư
-- Nguyễn Mạnh Cường
-- Trương Thành Công
-- Đường Minh Dũng
-- Đỗ Thành Đạt
+- Nguyen Thac Du
+- Nguyen Manh Cuong
+- Truong Thanh Cong
+- Duong Minh Dung
+- Do Thanh Dat
