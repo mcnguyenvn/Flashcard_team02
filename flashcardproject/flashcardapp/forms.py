@@ -42,7 +42,7 @@ SUBJECT_CHOICES = (
 class FlashCardForm(forms.ModelForm):
     title = forms.CharField()
     description = forms.CharField(
-        widget = forms.Textarea(attrs = {'cols': 50, 'rows': 2}), 
+        widget = forms.Textarea(attrs = {'cols': 100, 'rows': 2}),
         required = False)
     grade = forms.ChoiceField(
         choices = GRADE_CHOICES)
@@ -76,6 +76,9 @@ class PromptForm(forms.Form):
                 self.fields['Answer_%d' % (i+1)] = forms.CharField(required=False)
                 #self.fields['Answer_%d' % (i+1)].widget.attrs = {'name': 'a%s' % i}
 
+
+class UploadFileForm(forms.Form):
+    file  = forms.FileField()
 
 
     

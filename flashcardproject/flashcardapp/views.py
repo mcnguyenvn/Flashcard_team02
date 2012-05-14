@@ -1,15 +1,21 @@
 # Create your views here.
+import urllib
+from django.core.servers.basehttp import FileWrapper
 from pure_pagination.paginator import PageNotAnInteger, Paginator
-from flashcardapp.forms import FlashCardForm, PromptForm
+import xlwt
+from flashcardapp.forms import FlashCardForm, PromptForm, UploadFileForm
 from django.db.models import Q
 from flashcardapp.models import FlashCard, Question, wrapUser
 from django.core.exceptions import ObjectDoesNotExist
-from django.http import HttpResponseRedirect, Http404
+from django.http import HttpResponseRedirect, Http404, HttpResponse
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template import Context
 from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
+from flashcardapp.dict import *
 import settings
+import xlrd
+import hashlib
 
 def index(request):
     Art = FlashCard.objects.filter(Q(subject='art')).order_by('-vote')[:5]
@@ -60,14 +66,14 @@ def create(request):
             new_flashcard.vote = 0
             new_flashcard.save()
 
-        for i in xrange(settings.QuestNumber):
-            if request.POST['Prompt_%d' % (i+1)] != '':
-                prompt = request.POST['Prompt_%d' % (i+1)]
-                answer = request.POST['Answer_%d' % (i+1)]
-                quest = Question.objects.create(prompt=prompt,answer=answer,flashcardID = new_flashcard)
-                quest.save()
+            for i in xrange(settings.QuestNumber):
+                if request.POST['Prompt_%d' % (i+1)] != '':
+                    prompt = request.POST['Prompt_%d' % (i+1)]
+                    answer = request.POST['Answer_%d' % (i+1)]
+                    quest = Question.objects.create(prompt=prompt,answer=answer,flashcardID = new_flashcard)
+                    quest.save()
 
-        return HttpResponseRedirect('/flashcard/' + str(new_flashcard.id))
+            return HttpResponseRedirect('/flashcard/' + str(new_flashcard.id))
     else:
         form = FlashCardForm()
         promptForm = PromptForm()
@@ -286,3 +292,64 @@ def like(request, flashcard_id):
         'userlike': userlike,
         })
     return render_to_response('like.html', variables)
+
+@login_required(login_url='/login/')
+def upload_file(request):
+    if request.method == 'POST':
+        if request.FILES:
+            file = request.FILES['file']
+            wb = xlrd.open_workbook(file_contents=file.read())
+            sh = wb.sheet_by_index(0)
+            title = sh.cell(rowx=0, colx=1).value
+            description = sh.cell(rowx=1, colx=1).value
+            grade = sh.cell(rowx=2, colx=1).value
+            subject = sh.cell(rowx=3, colx=1).value
+            new_flashcard = FlashCard.objects.create(
+                title=title,
+                description=description,
+                grade=find_key(GRADE_DICT, grade),
+                subject=find_key(SUBJECT_DICT, subject),
+                user = request.user,
+                vote = 0,
+            )
+            new_flashcard.save()
+            i = 6
+            while i < sh.nrows:
+                prompt = sh.cell(rowx=i, colx = 0).value
+                answer = sh.cell(rowx=i, colx = 1).value
+                quest = Question.objects.create(prompt=prompt,answer=answer,flashcardID = new_flashcard)
+                quest.save()
+                i = i + 1
+            return HttpResponseRedirect('/flashcard/' + str(new_flashcard.id))
+    return render_to_response('uploadxls.html')
+
+@login_required(login_url='/login/')
+def download_flashcard(request, flashcard_id):
+    fc = get_object_or_404(FlashCard, pk = flashcard_id)
+    quests = Question.objects.filter(flashcardID__exact = fc)
+    workbook = xlwt.Workbook()
+    #Add a sheet
+    worksheet = workbook.add_sheet(fc.title)
+    worksheet.write(0, 0, "Title")
+    worksheet.write(1, 0, "Description")
+    worksheet.write(2, 0, "Grade")
+    worksheet.write(3, 0, "Subject")
+
+    worksheet.write(0, 1, fc.title)
+    worksheet.write(1, 1, fc.description)
+    worksheet.write(2, 1, find_value(GRADE_DICT, fc.grade))
+    worksheet.write(3, 1, find_value(SUBJECT_DICT,fc.subject))
+
+    worksheet.write(5, 0, "Prompt")
+    worksheet.write(5, 1, "Answer")
+
+    i = 6
+    for q in quests:
+        worksheet.write(i, 0, q.prompt)
+        worksheet.write(i, 1, q.answer)
+        i += 1
+    filename = 'Flashcard_' + urllib.quote(fc.title.encode('utf-8')) + '.xls'
+    response = HttpResponse(content_type='application/vnd.ms-excel; charset=utf-8')
+    response['Content-Disposition'] = 'attachment; filename=%s' %filename
+    workbook.save(response)
+    return response

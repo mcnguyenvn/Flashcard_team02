@@ -13,10 +13,11 @@
 {% endblock %}
 
 {% block content %}
-	<div class="span9">
-        {{ test }}
+	<div class="span9" style="margin-top: 2px;">
 		<form method="post" action=".">
-            <h3>New Flashcards</h3>
+            <h3>New Flashcards
+            <a data-toggle="modal" class="btn btn-success" href="#uploadModal" style="margin-top: -8px;">Create by Upload</a>
+            </h3>
             <hr>
 			<table>
 				{{ form.as_table }}

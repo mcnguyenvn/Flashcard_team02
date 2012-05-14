@@ -14,12 +14,20 @@
         <br/>
         <br/>
         <form method="post" action=".">
-            <label>First Name</label>
-            <input type="text" name="first_name" value="{{ user.first_name }}"><br />
-            <label>Last Name</label>
-            <input type="text" name="last_name" value="{{ user.last_name }}"><br />
-            <label>Email</label>
-            <input type="email" name="email" value="{{ user.email }}"><br/>
+            <table>
+                <tr>
+                    <td><label class="label label-success" for="first_name">First Name</label></td>
+                    <td><input id="first_name" type="text" name="first_name" value="{{ user.first_name }}"></td>
+                </tr>
+                <tr>
+                    <td><label class="label label-success" for="last_name">Last Name</label></td>
+                    <td><input id="last_name" type="text" name="last_name" value="{{ user.last_name }}"></td>
+                </tr>
+                <tr>
+                    <td><label class="label label-success" for="email">Email</label></td>
+                    <td><input id="email" type="email" name="email" value="{{ user.email }}"></td>
+                </tr>
+            </table>
             <p><a href="/user/{{ user.username }}/changepassword/">Change Your Password</a></p>
             <input class="btn btn-primary" type="submit" value="Submit">
             <input class="btn btn-danger" type="reset" value="Cancel" onclick="window.history.back()">

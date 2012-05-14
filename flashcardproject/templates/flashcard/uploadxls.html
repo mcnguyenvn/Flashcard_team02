@@ -1,0 +1,10 @@
+{% extends "flashcard/base.html" %}
+
+{% block content %}
+    <p>{{ mess }}</p>
+    <p>{{ file.name }}</p>
+    <form action="." method="POST" enctype="multipart/form-data">
+        {{ form.as_table }}
+        <input type="submit" value="Submit">
+    </form>
+{% endblock %}

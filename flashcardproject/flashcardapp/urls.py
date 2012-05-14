@@ -14,4 +14,6 @@ urlpatterns = patterns('flashcardapp.views',
     (r'^(?P<flashcard_id>\d+)/copy/$', 'copy'),
     (r'^(?P<flashcard_id>\d+)/delete/$', 'delete'),
     (r'^(?P<flashcard_id>\d+)/$', 'view_flashcard'),
+    (r'^(?P<flashcard_id>\d+)/download/$', 'download_flashcard'),
+    (r'^upload/$', 'upload_file'),
 )

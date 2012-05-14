@@ -32,11 +32,12 @@
 {% endblock %}
 
 {% block content %}
-    <div class="span9 offset3">
+    <div class="span9" style="margin-top: -9px;">
         <h2><strong> {{ fc.title }} </strong></h2>
         <p style="font-size: small; font-style: italic;">{{ fc.description }}</p>
         {% if user.is_authenticated %}
             <a rel="tooltip" title="Copy" href="/flashcard/{{ flashcard_id }}/copy/"><img src="{{ STATIC_PREFIX }}images/Copy-icon.png"></a>
+            <a rel="tooltip" title="Download As Excel" href="/flashcard/{{ flashcard_id }}/download/"><i class="icon-download"></i></a>
         {% endif %}
 	    {% if owner %}
             <a rel="tooltip" title="Edit" href="/flashcard/{{ flashcard_id }}/edit/"><i class="icon-edit"></i></a>
@@ -52,7 +53,7 @@
 			<p>No Flashcards found.</p>
 		{% endif %}
         <br/>
-        <a class="badge badge-success" href="#" data-toggle="collapse" data-target="#comment">
+        <a class="badge badge-success" data-toggle="collapse" data-target="#comment">
             <i class="icon-comment icon-white"></i> Comment
         </a>
         <div id="comment" class="collapse inactive">

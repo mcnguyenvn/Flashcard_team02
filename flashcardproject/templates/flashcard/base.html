@@ -5,7 +5,7 @@
         <ul class="nav nav-list well">
             {% if user.is_authenticated %}
                 <li class="nav-header"> Options </li>
-                <a class="btn btn-success" href="/flashcard/create/"> Create New Flashcard</a>
+                <h3><a class="btn btn-success" href="/flashcard/create/"> Create New Flashcard</a></h3>
                 <li><a href="/user/{{ user.username }}/flashcardlist/"> My Flashcard </a></li>
             {% endif %}
             <li class="nav-header"> Categories </li>
@@ -23,4 +23,5 @@
             <li><a href="/flashcard/title/rel"> 	Religion             </a></li>
         </ul>
     </div><!--/.well -->
+    {% include "uploadxls.html" %}
 {% endblock %}
