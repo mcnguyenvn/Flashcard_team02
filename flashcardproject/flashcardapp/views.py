@@ -1,21 +1,19 @@
 # Create your views here.
 import urllib
-from django.core.servers.basehttp import FileWrapper
 from pure_pagination.paginator import PageNotAnInteger, Paginator
 import xlwt
-from flashcardapp.forms import FlashCardForm, PromptForm, UploadFileForm
+from flashcardapp.forms import FlashCardForm, PromptForm
 from django.db.models import Q
 from flashcardapp.models import FlashCard, Question, wrapUser
-from django.core.exceptions import ObjectDoesNotExist
-from django.http import HttpResponseRedirect, Http404, HttpResponse
+from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template import Context
 from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
 from flashcardapp.dict import *
+from flashcardapp.templateExcel import h5, FIRST_COL, SECOND_COL, f1, f2
 import settings
 import xlrd
-import hashlib
 
 def index(request):
     Art = FlashCard.objects.filter(Q(subject='art')).order_by('-vote')[:5]
@@ -328,25 +326,27 @@ def download_flashcard(request, flashcard_id):
     fc = get_object_or_404(FlashCard, pk = flashcard_id)
     quests = Question.objects.filter(flashcardID__exact = fc)
     workbook = xlwt.Workbook()
+
     #Add a sheet
     worksheet = workbook.add_sheet(fc.title)
-    worksheet.write(0, 0, "Title")
-    worksheet.write(1, 0, "Description")
-    worksheet.write(2, 0, "Grade")
-    worksheet.write(3, 0, "Subject")
+    worksheet.write(0, 0, "Title", h5)
+    worksheet.write(1, 0, "Description", h5)
+    worksheet.write(2, 0, "Grade", h5)
+    worksheet.write(3, 0, "Subject", h5)
+    worksheet.col(0).width = FIRST_COL
+    worksheet.col(1).width = SECOND_COL
+    worksheet.write(0, 1, fc.title, f2)
+    worksheet.write(1, 1, fc.description, f2)
+    worksheet.write(2, 1, find_value(GRADE_DICT, fc.grade), f2)
+    worksheet.write(3, 1, find_value(SUBJECT_DICT,fc.subject), f2)
 
-    worksheet.write(0, 1, fc.title)
-    worksheet.write(1, 1, fc.description)
-    worksheet.write(2, 1, find_value(GRADE_DICT, fc.grade))
-    worksheet.write(3, 1, find_value(SUBJECT_DICT,fc.subject))
-
-    worksheet.write(5, 0, "Prompt")
-    worksheet.write(5, 1, "Answer")
+    worksheet.write(5, 0, "Prompt", h5)
+    worksheet.write(5, 1, "Answer", h5)
 
     i = 6
     for q in quests:
-        worksheet.write(i, 0, q.prompt)
-        worksheet.write(i, 1, q.answer)
+        worksheet.write(i, 0, q.prompt, f1)
+        worksheet.write(i, 1, q.answer, f1)
         i += 1
     filename = 'Flashcard_' + urllib.quote(fc.title.encode('utf-8')) + '.xls'
     response = HttpResponse(content_type='application/vnd.ms-excel; charset=utf-8')
