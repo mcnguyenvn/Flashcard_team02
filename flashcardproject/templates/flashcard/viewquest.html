@@ -41,8 +41,9 @@
         {% endif %}
 	    {% if owner %}
             <a rel="tooltip" title="Edit" href="/flashcard/{{ flashcard_id }}/edit/"><i class="icon-edit"></i></a>
-            <a rel="tooltip" title="Delete" href="/flashcard/{{ flashcard_id }}/delete/" onclick="javascript:return confirm('Are you sure you want to delete this flashcard ?')">
+            <a rel="tooltip" data-toggle="modal" title="Delete" href="#deleteModal">
             <i class="icon-remove"></i></a>
+            {% include "delete_modal.html" %}
 	    {% endif %}
 
 		{% if quests %}

@@ -16,6 +16,7 @@ def login_page(request):
     if request.user.is_authenticated():
         HttpResponseRedirect('/flashcard')
     error = 0
+    redirect_to = request.REQUEST.get('next', '')
     if request.POST:
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -24,7 +25,7 @@ def login_page(request):
         if user is not None:
             if user.is_active:
                 login(request, user)
-                return HttpResponseRedirect("/flashcard/")
+                return HttpResponseRedirect(redirect_to)
             else:
                 error = 1
         else:

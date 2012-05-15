@@ -321,14 +321,28 @@ def upload_file(request):
             return HttpResponseRedirect('/flashcard/' + str(new_flashcard.id))
     return render_to_response('uploadxls.html')
 
+FORBID_STRING = '\/:*?"<>|'
+def normalize_string(st):
+    a = st.replace('\\', '')
+    a = a.replace('/', '')
+    a = a.replace(':', '')
+    a = a.replace('*', '')
+    a = a.replace('?', '')
+    a = a.replace('"', '')
+    a = a.replace('<', '')
+    a = a.replace('>', '')
+    a = a.replace('|', '')
+    return a
+
 @login_required(login_url='/login/')
 def download_flashcard(request, flashcard_id):
     fc = get_object_or_404(FlashCard, pk = flashcard_id)
     quests = Question.objects.filter(flashcardID__exact = fc)
     workbook = xlwt.Workbook()
 
+    name = normalize_string(fc.title)
     #Add a sheet
-    worksheet = workbook.add_sheet(fc.title)
+    worksheet = workbook.add_sheet(name)
     worksheet.write(0, 0, "Title", h5)
     worksheet.write(1, 0, "Description", h5)
     worksheet.write(2, 0, "Grade", h5)
@@ -348,7 +362,7 @@ def download_flashcard(request, flashcard_id):
         worksheet.write(i, 0, q.prompt, f1)
         worksheet.write(i, 1, q.answer, f1)
         i += 1
-    filename = 'Flashcard_' + urllib.quote(fc.title.encode('utf-8')) + '.xls'
+    filename = 'Flashcard_' + urllib.quote(name.encode('utf-8')) + '.xls'
     response = HttpResponse(content_type='application/vnd.ms-excel; charset=utf-8')
     response['Content-Disposition'] = 'attachment; filename=%s' %filename
     workbook.save(response)
