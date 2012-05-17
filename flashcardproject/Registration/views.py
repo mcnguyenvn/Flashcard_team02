@@ -50,7 +50,7 @@ def register(request):
         user.save()
         send_mail(
             '[Flashcard] Welcome to our website',
-            'Thank you for your registration.'
+            'Thank you for your registration.\n'
             'Admin,',
             '',
             [email],

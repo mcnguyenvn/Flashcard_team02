@@ -2,27 +2,38 @@
 {% get_static_prefix as STATIC_PREFIX %}
 
 <div id="uploadModal" class="modal hide fade" style="display: none;">
-    <div class="modal-header">
-        <button class="close" data-dismiss="modal">x</button>
-        <h3>Upload an Excel File</h3>
-    </div>
     <div class="modal-body">
-        <form action="/flashcard/upload/" method="POST" enctype="multipart/form-data">
-            <div class="fileupload-buttonbar">
-                <span class="btn btn-success fileinput-button">
-                    <i class="icon-plus icon-white"></i>
-                    <span>Choose File</span>
-                    <input type="file" name="file">
-                </span>
-                <button type="submit" class="btn btn-primary">
-                    <i class="icon-upload icon-white"></i>
-                    <span>Start Upload</span>
-                </button>
+        <div class="tabbable">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#tab1" data-toggle="tab">Upload an Excel File</a></li>
+                <li><a href="#tab2" data-toggle="tab">How to Upload</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="tab1">
+                    <form action="/flashcard/upload/" method="POST" enctype="multipart/form-data">
+                        <div class="fileupload-buttonbar">
+                            <span class="btn btn-success fileinput-button">
+                                <i class="icon-plus icon-white"></i>
+                                <span>Choose File</span>
+                                <input type="file" name="file">
+                            </span>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="icon-upload icon-white"></i>
+                                <span>Start Upload</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="tab-pane" id="tab2">
+                    <p><b>Note:</b> Your file must be an Excel spreadsheets (XLS only, versions 2.0 to 2003)</p>
+                    <p>And <b>MUST</b> follows this <a href="{{ STATIC_PREFIX }}Flashcard_Template.xls">Template</a></p>
+                    <p>Grade and Subject should be correlative with our field</p>
+                    <p>If not, these fields will be <b>Other</b></p>
+                </div>
             </div>
-        </form>
+        </div>
     </div>
-    <div class="modal-footer" style="text-align: left; font-family: sans-serif;">
-        <p><strong>Note:</strong> Your file must be an Excel spreadsheets (XLS only, versions 2.0 to 2003)</p>
-        <p>And <strong>MUST</strong> follows this <a href="{{ STATIC_PREFIX }}Flashcard_Template.xls">Template</a></p>
+    <div class="modal-footer">
+        <button class="btn btn-danger" data-dismiss="modal">Close</button>
     </div>
 </div>

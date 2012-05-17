@@ -1,10 +1,15 @@
+{% load static %}
+{% get_static_prefix as STATIC_PREFIX %}
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
         "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <title>404 error</title>
+    <title>Page not found</title>
 </head>
 <body>
-    <p>This page may not exist</p>
+    <div style="text-align: center">
+    <img src="{{ STATIC_PREFIX }}images/404.jpg">
+    <h2>The requested URL <span style="color:blue;">{{ request.path }}</span> was not found on this server</h2>
+    </div>
 </body>
 </html>

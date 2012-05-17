@@ -291,17 +291,36 @@ def like(request, flashcard_id):
         })
     return render_to_response('like.html', variables)
 
+def gen_grade(grade):
+    if grade in GRADE_DICT.values():
+        return grade
+    return 'Other'
+
+def gen_subject(subject):
+    if subject in SUBJECT_DICT.values():
+        return subject
+    return 'Other'
+
+def validFile(file):
+    a = file.name.split('.')
+    suffix = a[len(a) - 1]
+    if suffix == 'xls':
+        return True
+    return False
+
 @login_required(login_url='/login/')
 def upload_file(request):
     if request.method == 'POST':
         if request.FILES:
             file = request.FILES['file']
+            if not validFile(file):
+                return render_to_response('flashcard/wrong_file_type.html', RequestContext(request))
             wb = xlrd.open_workbook(file_contents=file.read())
             sh = wb.sheet_by_index(0)
             title = sh.cell(rowx=0, colx=1).value
             description = sh.cell(rowx=1, colx=1).value
-            grade = sh.cell(rowx=2, colx=1).value
-            subject = sh.cell(rowx=3, colx=1).value
+            grade = gen_grade(sh.cell(rowx=2, colx=1).value)
+            subject = gen_subject(sh.cell(rowx=3, colx=1).value)
             new_flashcard = FlashCard.objects.create(
                 title=title,
                 description=description,
@@ -342,7 +361,7 @@ def download_flashcard(request, flashcard_id):
 
     name = normalize_string(fc.title)
     #Add a sheet
-    worksheet = workbook.add_sheet(name)
+    worksheet = workbook.add_sheet('Sheet1')
     worksheet.write(0, 0, "Title", h5)
     worksheet.write(1, 0, "Description", h5)
     worksheet.write(2, 0, "Grade", h5)

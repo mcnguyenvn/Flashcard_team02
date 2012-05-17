@@ -38,4 +38,5 @@ SUBJECT_DICT = {
     'sci': 'Science',
     'peh': 'PE & Health',
     'rel': 'Religion',
+    'oth': 'Other',
     }

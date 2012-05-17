@@ -36,14 +36,16 @@ SUBJECT_CHOICES = (
     ('fol', 'Foreign Language'),
     ('sci', 'Science'),
     ('peh', 'PE & Health'),
-    ('rel', 'Religion'),                 
+    ('rel', 'Religion'),
 )
 
 class FlashCardForm(forms.ModelForm):
-    title = forms.CharField()
+    title = forms.CharField(required=True, max_length=200)
     description = forms.CharField(
         widget = forms.Textarea(attrs = {'cols': 100, 'rows': 2}),
-        required = False)
+        required = True,
+        min_length=10,
+    )
     grade = forms.ChoiceField(
         choices = GRADE_CHOICES)
     subject = forms.ChoiceField(
